@@ -531,7 +531,7 @@ const serie1 = new Serie(1,"Mr.Robot","Suspenso");
 console.log(serie1)
 
 const serie2 = new Serie(2,"El juego del calamar","Drama");
-console.log(serie2)
+console.log(serie2);
 
 
 
