@@ -490,19 +490,48 @@ console.log(`$${totalInventarios}`);
 
 console.log('Metodo some');
 const existe1 = autos.some(auto => auto.marca === 'Ferrari');
-console.log(`Hay marca Ferrari?: ${existe1}`);
+console.log(`Hay marca Ferrari ? ${existe1}`);
 
 const existe2 = autos.some(auto => auto.marca === 'BMW');
-console.log(`Hay marca BMW?: ${existe2}`);
+console.log(`Hay marca BMW ? ${existe2}`);
 
+//Programacion Orientada a Objetos
+console.log("Programacion Orientada a Objetos");
+console.log("Clases");
+class Pelicula{
+ constructor(id, nombre){
+   this.id = id;
+   this.nombre = nombre;
+ } 
 
+  reproducir(){
+    return `Reproduciendo pelicula ${this.nombre}`
+  }
+  
+}
 
+const pelicula1 = new Pelicula(1,"Harry Potter");
+console.log(pelicula1);
+console.log(pelicula1.reproducir());
 
+const pelicula2 = new Pelicula(2,"Hombre Araña");
+console.log(pelicula2);
+console.log(pelicula2.reproducir());
 
+//Herencia
+console.log("Herencia");
+class Serie extends Pelicula{
+  constructor(id, nombre, genero){
+    super(id, nombre)
+    this.genero = genero
+  }
+}
 
+const serie1 = new Serie(1,"Mr.Robot","Suspenso");
+console.log(serie1)
 
-
-
+const serie2 = new Serie(2,"El juego del calamar","Drama");
+console.log(serie2)
 
 
 
