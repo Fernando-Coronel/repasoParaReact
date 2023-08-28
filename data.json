@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "libro HTML",
+    "price":200,
+    "img": "img/html.jpg"
+  },
+  {
+    "id": 2,
+    "name": "libro CSS",
+    "price":400,
+    "img": "img/css.jpg"
+  },
+  {
+    "id": 1,
+    "name": "libro Python",
+    "price":1500,
+    "img": "img/python.jpg"
+  }
+]
