@@ -521,19 +521,49 @@ console.log(pelicula2.reproducir());
 //Herencia
 console.log("Herencia");
 class Serie extends Pelicula{
-  constructor(id, nombre, genero){
+  constructor(id, nombre, genero, capitulo){
     super(id, nombre)
-    this.genero = genero
+    this.genero = genero;
+    this.capitulo = capitulo;
+  }
+
+  reproducirCapitulo(){
+    return `Reproduciendo serie ${this.nombre} en el capitulo ${this.capitulo}`
   }
 }
 
-const serie1 = new Serie(1,"Mr.Robot","Suspenso");
-console.log(serie1)
+const serie1 = new Serie(1,"Mr.Robot","Suspenso",10);
+console.log(serie1);
+console.log(serie1.reproducirCapitulo());
 
-const serie2 = new Serie(2,"El juego del calamar","Drama");
+const serie2 = new Serie(2,"El juego del calamar","Drama",23);
 console.log(serie2);
+console.log(serie2.reproducirCapitulo());
 
+//Introduccion a Arrays
+const array1 = [3,4,true,"Javascript", "React"];
 
+console.table(array1);
+console.log(array1[3]);
+console.log(array1.length);
+
+//Manipulacion de arrays
+const tecnologias = ["HTML","CSS","JavaScript","React"];
+//Añadir elementos
+tecnologias.push("GraphQL");//Lo agrega al final del arreglo
+console.table(tecnologias);
+//Añadirlo al inicio del arreglo
+tecnologias.unshift("Pseint");
+console.table(tecnologias);
+
+const nuevoArreglo1 = [...tecnologias, "Pseint"];//Lo añade al ultimo
+console.table(nuevoArreglo1);
+const nuevoArreglo2 = ["Pseint", ...tecnologias];//Lo añade al inicio
+console.table(nuevoArreglo2);
+
+//Eliminar elemento final de un arreglo
+nuevoArreglo1.pop()
+console.table(nuevoArreglo1)
 
 
 
