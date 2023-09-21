@@ -567,137 +567,358 @@ console.table(nuevoArreglo1);
 
 
 //Proyecto 1. carrito de compras
-const carrito = document.querySelector('#carrito1');
-const contenedorCarrito = document.querySelector('#lista-carrito tbody');
-const vaciarCarrito = document.querySelector('#vaciar-carrito');
-const listaCursos = document.querySelector('#lista-cursos');
-let articulosCarrito = []; // Inicializar como un array vacío
+//const carrito = document.querySelector('#carrito1');
+//const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+//const vaciarCarrito = document.querySelector('#vaciar-carrito');
+//const listaCursos = document.querySelector('#lista-cursos');
+//let articulosCarrito = []; // Inicializar como un array vacío
 
-cargarEventos();
-function cargarEventos(){
+//cargarEventos();
+//function cargarEventos(){
   //Cuando agrega un curso presionando "Agregar carrito".
-  listaCursos.addEventListener('click', agregarCurso);
+  //listaCursos.addEventListener('click', agregarCurso);
 
   //Elimina cursos del carrito
-  contenedorCarrito.addEventListener('click', eliminarCurso);
+  //contenedorCarrito.addEventListener('click', eliminarCurso);
 
   //Vaciar el carrito
-  vaciarCarrito.addEventListener('click', () =>{
-    articulosCarrito = [];
-    limpiarHTML();//Eliminamos el HTML
-  })
-}
+  //vaciarCarrito.addEventListener('click', () =>{
+    //articulosCarrito = [];
+    //limpiarHTML();//Eliminamos el HTML
+  //})
+//}
 
 //Funciones
-function agregarCurso(e){
-  e.preventDefault();
-  if(e.target.classList.contains('agregar-carrito')){
-    const cursoSeleccionado = e.target.parentElement;
-    leerDatosCurso(cursoSeleccionado);
-  }
-  
-}
+//function agregarCurso(e){
+  //e.preventDefault();
+  //if(e.target.classList.contains('agregar-carrito')){
+    //const cursoSeleccionado = e.target.parentElement;
+    //leerDatosCurso(cursoSeleccionado);
+  //}
+//}
 
 //Elimina curso del carrito
-function eliminarCurso(e) {
-  if (e.target.classList.contains('borrar-curso')) {
-    const cursoId = e.target.getAttribute("data-id");
+//function eliminarCurso(e) {
+  //if (e.target.classList.contains('borrar-curso')) {
+    //const cursoId = e.target.getAttribute("data-id");
 
     // Buscar el curso por su id en el carrito
-    const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
+    //const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
 
-    if (cursoEnCarrito) {
-      if (cursoEnCarrito.cantidad > 1) {
+    //if (cursoEnCarrito) {
+      //if (cursoEnCarrito.cantidad > 1) {
         // Si hay más de uno, simplemente reducir la cantidad
-        cursoEnCarrito.cantidad--;
-      } else {
+        //cursoEnCarrito.cantidad--;
+      //} else {
         // Si solo hay uno, eliminar el curso del carrito
-        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
-      }
-      carritoHTML(); // Actualizar la visualización del carrito
-    }
-  }
-}
+        //articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+      //}
+      //carritoHTML(); // Actualizar la visualización del carrito
+    //}
+  //}
+//}
 
 //Click y extrae informacion del curso
-function leerDatosCurso(curso){
+//function leerDatosCurso(curso){
     // Si el curso no existe, agrégalo al carrito
-    const infoCurso = {
-      imagen: curso.querySelector('img').src,
-      titulo: curso.querySelector('h4').textContent,
-      precio: curso.querySelector('.precio').textContent,
-      id: curso.querySelector('a').getAttribute('data-id'),
-      cantidad: 1
-    };
+    //const infoCurso = {
+      //imagen: curso.querySelector('img').src,
+      //titulo: curso.querySelector('h4').textContent,
+      //precio: curso.querySelector('.precio').textContent,
+      //id: curso.querySelector('a').getAttribute('data-id'),
+      //cantidad: 1
+    //};
    // Verificar si el curso ya está en el carrito
-  const cursoExistente = articulosCarrito.some(curso => curso.id === infoCurso.id);
-  if(cursoExistente){
+  //const cursoExistente = articulosCarrito.some(curso => curso.id === infoCurso.id);
+  //if(cursoExistente){
     //Actualizamos la cantidad
-    const cursos = articulosCarrito.map(curso => {
-      if(curso.id === infoCurso.id){
-        curso.cantidad++;
-        return curso;//Retorna el objeto actualizado
-      }else{
-        return curso;//Retorna los objetos que no son los duplicados.
-      }
-    });
-    articulosCarrito = [...cursos];
-  }else{
+    //const cursos = articulosCarrito.map(curso => {
+      //if(curso.id === infoCurso.id){
+        //curso.cantidad++;
+        //return curso;//Retorna el objeto actualizado
+      //}else{
+        //return curso;
+//Retorna los objetos que no son los duplicados.
+      //}
+    //});
+    //articulosCarrito = [...cursos];
+  //}else{
       //Agrega elementos al arreglo del carrito
-    articulosCarrito = [...articulosCarrito, infoCurso];
-  }
-  carritoHTML();
-}
+    //articulosCarrito = [...articulosCarrito, infoCurso];
+  //}
+  //carritoHTML();
+//}
 
 
 //Muestra el carrito de compras en el HTML
-function carritoHTML(){
+//function carritoHTML(){
   //Limpiar el HTML
-  limpiarHTML();
+  //limpiarHTML();
   
   //Recorre el carrito y general el HTML
-  articulosCarrito.forEach(curso => {
+  //articulosCarrito.forEach(curso => {
     //Destructuracion de curso
-    const {imagen, titulo, precio, cantidad, id} = curso
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>
-       <img src="${imagen}" / width=50>
-      </td>
-      <td>${titulo}</td>
-      <td>${precio}</td>
-      <td>${cantidad}</td>
-      <td>
-        <a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
-      </td>
-    `;
+    //const {imagen, titulo, precio, cantidad, id} = curso
+    //const row = document.createElement('tr');
+    //row.innerHTML = `
+      //<td>
+       //<img src="${imagen}" / width=50>
+      //</td>
+      //<td>${titulo}</td>
+      //<td>${precio}</td>
+      //<td>${cantidad}</td>
+      //<td>
+        //<a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
+      //</td>
+    //`;
     
     //Agregar el HTML del carrito en el tbody
-    contenedorCarrito.appendChild(row);
-  })
-}
+    //contenedorCarrito.appendChild(row);
+  //})
+//}
 
 
 //Elimina los cursos del tbody
-function limpiarHTML(){
+//function limpiarHTML(){
   //Forma lenta
-  contenedorCarrito.innerHTML = '';
+  //contenedorCarrito.innerHTML = '';
   
   //Forma rapida
-  while (contenedorCarrito.firstChild) {
-    contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+  //while (contenedorCarrito.firstChild) {
+    //contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+  //}
+//}
+//Fin del proyecto
+
+//Base de datos empleados
+const empleados = [
+  {
+    "nombre": "Juan Pérez",
+    "puesto": "Gerente de Ventas",
+    "salario": 60000,
+    "departamento": "Ventas"
+  },
+  {
+    "nombre": "María García",
+    "puesto": "Desarrollador Senior",
+    "salario": 75000,
+    "departamento": "Tecnología"
+  },
+  {
+    "nombre": "Pedro López",
+    "puesto": "Contador",
+    "salario": 55000,
+    "departamento": "Finanzas"
+  },
+  {
+    "nombre": "Ana Rodríguez",
+    "puesto": "Diseñadora Gráfica",
+    "salario": 48000,
+    "departamento": "Diseño"
+  },
+  {
+    "nombre": "Luis Torres",
+    "puesto": "Analista de Datos",
+    "salario": 62000,
+    "departamento": "Tecnología"
+  },
+  {
+    "nombre": "Carmen Martínez",
+    "puesto": "Recursos Humanos",
+    "salario": 50000,
+    "departamento": "Recursos Humanos"
+  },
+  {
+    "nombre": "Javier Sánchez",
+    "puesto": "Especialista en Marketing",
+    "salario": 58000,
+    "departamento": "Marketing"
+  },
+  {
+    "nombre": "Laura González",
+    "puesto": "Asistente Administrativo",
+    "salario": 42000,
+    "departamento": "Administración"
+  },
+  {
+    "nombre": "Miguel Ríos",
+    "puesto": "Ingeniero de Soporte",
+    "salario": 56000,
+    "departamento": "Tecnología"
+  },
+  {
+    "nombre": "Isabel Castro",
+    "puesto": "Analista de Finanzas",
+    "salario": 59000,
+    "departamento": "Finanzas"
   }
-}
+];
+
+empleados.map(empleado => console.log(empleado));
 
 
+//Bases de datos de autos
+const carros = [
+  {
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "año": 2022,
+    "precio": 25000,
+    "color": "Blanco"
+  },
+  {
+    "marca": "Honda",
+    "modelo": "Civic",
+    "año": 2022,
+    "precio": 26000,
+    "color": "Negro"
+  },
+  {
+    "marca": "Ford",
+    "modelo": "F-150",
+    "año": 2022,
+    "precio": 35000,
+    "color": "Gris"
+  },
+  {
+    "marca": "Chevrolet",
+    "modelo": "Camaro",
+    "año": 2022,
+    "precio": 42000,
+    "color": "Rojo"
+  },
+  {
+    "marca": "Volkswagen",
+    "modelo": "Jetta",
+    "año": 2022,
+    "precio": 28000,
+    "color": "Plata"
+  },
+  {
+    "marca": "Nissan",
+    "modelo": "Altima",
+    "año": 2022,
+    "precio": 27000,
+    "color": "Azul"
+  },
+  {
+    "marca": "BMW",
+    "modelo": "X5",
+    "año": 2022,
+    "precio": 55000,
+    "color": "Blanco"
+  },
+  {
+    "marca": "Mercedes-Benz",
+    "modelo": "C-Class",
+    "año": 2022,
+    "precio": 52000,
+    "color": "Negro"
+  },
+  {
+    "marca": "Audi",
+    "modelo": "A4",
+    "año": 2022,
+    "precio": 49000,
+    "color": "Gris"
+  },
+  {
+    "marca": "Hyundai",
+    "modelo": "Elantra",
+    "año": 2022,
+    "precio": 26000,
+    "color": "Plateado"
+  }
+];
 
+carros.map(carro => console.log(carro));
 
+const gris = carros.filter( carro => carro.color === "Gris");
+console.log(gris)
 
+const ford = carros.some(carro => carro.marca === 'Ford');
+console.log(`Hay marca Ford ? ${ford}`);
 
+const marcas1 = carros.map(carro => {
+  return carro.marca.toString().toUpperCase();
+});
+console.log(marcas1.sort());
+// console.log(marcas1.sort());
 
+const libros = [
+  {
+    "titulo": "Cien años de soledad",
+    "autor": "Gabriel García Márquez",
+    "genero": "Realismo mágico",
+    "anio_publicacion": 1967,
+    "isbn": "978-84-376-0494-7"
+  },
+  {
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "genero": "Ciencia ficción",
+    "anio_publicacion": 1949,
+    "isbn": "978-0451524935"
+  },
+  {
+    "titulo": "El Gran Gatsby",
+    "autor": "F. Scott Fitzgerald",
+    "genero": "Ficción",
+    "anio_publicacion": 1925,
+    "isbn": "978-0-7432-7356-5"
+  },
+  {
+    "titulo": "Matar un ruiseñor",
+    "autor": "Harper Lee",
+    "genero": "Novela",
+    "anio_publicacion": 1960,
+    "isbn": "978-0061120084"
+  },
+  {
+    "titulo": "Don Quijote de la Mancha",
+    "autor": "Miguel de Cervantes",
+    "genero": "Novela de caballerías",
+    "anio_publicacion": 1605,
+    "isbn": "978-8491041882"
+  },
+  {
+    "titulo": "En busca del tiempo perdido",
+    "autor": "Marcel Proust",
+    "genero": "Novela",
+    "anio_publicacion": 1913,
+    "isbn": "978-84-376-0494-7"
+  },
+  {
+    "titulo": "Crimen y castigo",
+    "autor": "Fyodor Dostoevsky",
+    "genero": "Novela",
+    "anio_publicacion": 1866,
+    "isbn": "978-0143107637"
+  },
+  {
+    "titulo": "Ulises",
+    "autor": "James Joyce",
+    "genero": "Ficción",
+    "anio_publicacion": 1922,
+    "isbn": "978-0394700135"
+  },
+  {
+    "titulo": "Los juegos del hambre",
+    "autor": "Suzanne Collins",
+    "genero": "Ciencia ficción",
+    "anio_publicacion": 2008,
+    "isbn": "978-8427202122"
+  },
+  {
+    "titulo": "Orgullo y prejuicio",
+    "autor": "Jane Austen",
+    "genero": "Novela",
+    "anio_publicacion": 1813,
+    "isbn": "978-0141439518"
+  }
+];
 
-
-
+libros.map( libro => console.log(libro));
 
 
 
