@@ -690,359 +690,131 @@ console.table(nuevoArreglo1);
 //}
 //Fin del proyecto
 
+
 //Proyecto 2. Simulador de envios de emails
-const email = document.querySelector('#email');
-const asunto = document.querySelector('#asunto');
-const mensaje = document.querySelector('#mensaje');
-const formulario = document.querySelector('#enviar-mail');
-const btnEnviar = document.querySelector('#enviar');
-const btnReset = document.querySelector('#resetBtn');
-const expReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+// const email = document.querySelector('#email');
+// const asunto = document.querySelector('#asunto');
+// const mensaje = document.querySelector('#mensaje');
+// const formulario = document.querySelector('#enviar-mail');
+// const btnEnviar = document.querySelector('#enviar');
+// const btnReset = document.querySelector('#resetBtn');
+// const expReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-eventListeners();
-function eventListeners(){
-  //Cuando inicia la app
-  document.addEventListener('DOMContentLoaded', iniciarApp);
+// eventListeners();
+// function eventListeners(){
+//   //Cuando inicia la app
+//   document.addEventListener('DOMContentLoaded', iniciarApp);
 
-  //Campos del formulario
-  email.addEventListener('blur', validarFormulario);
-  asunto.addEventListener('blur', validarFormulario);
-  mensaje.addEventListener('blur', validarFormulario);
+//   //Campos del formulario
+//   email.addEventListener('blur', validarFormulario);
+//   asunto.addEventListener('blur', validarFormulario);
+//   mensaje.addEventListener('blur', validarFormulario);
 
-  //Reinicia el formulario
-  btnReset.addEventListener('click', resetearFormulario);
+//   //Reinicia el formulario
+//   btnReset.addEventListener('click', resetearFormulario);
 
-  //Enviar formulario
-  formulario.addEventListener('submit', enviarEmail);
-}
+//   //Enviar formulario
+//   formulario.addEventListener('submit', enviarEmail);
+// }
 
-//Funciones
-function iniciarApp(){
-  btnEnviar.disabled = true;
-  btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
-}
+// //Funciones
+// function iniciarApp(){
+//   btnEnviar.disabled = true;
+//   btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
+// }
 
-function validarFormulario(e){
+// function validarFormulario(e){
+//   if(e.target.value.length > 0){
+//     //console.log('Si hay algo');
+//       //Elimina los errores...
+//   const error = document.querySelector('p.error');
+//   if(error){
+//      error.remove(); 
+//   }
+//      e.target.classList.remove('border-2', 'border-rose-500')
+//     e.target.classList.add('border-2', 'border-green-500');
+//   }else{
+//     e.target.classList.remove('border-2', 'border-green-500');
+//     e.target.classList.add('border-2', 'border-rose-500');
+//     mostrarError('Todos los campos son obligatorios');
+//   }
   
+//   if(e.target.type === 'email'){
+//     if(expReg.test(e.target.value)){
+//       //console.log('email valido');
+//           //console.log('Si hay algo');
+//           //Elimina los errores...
+//           const error = document.querySelector('p.error');
+//             if (error) {
+//               error.remove();
+//             }
+//           e.target.classList.remove('border-2', 'border-rose-500')
+//           e.target.classList.add('border-2', 'border-green-500');
+//     }else{
+//       e.target.classList.remove('border-2', 'border-green-500');
+//     e.target.classList.add('border-2', 'border-rose-500');
+//       mostrarError('Email no valido');
+//     }
+//   }
   
-  if(e.target.value.length > 0){
-    //console.log('Si hay algo');
-      //Elimina los errores...
-  const error = document.querySelector('p.error');
-  if(error){
-     error.remove(); 
-  }
-     e.target.classList.remove('border-2', 'border-rose-500')
-    e.target.classList.add('border-2', 'border-green-500');
-  }else{
-    e.target.classList.remove('border-2', 'border-green-500');
-    e.target.classList.add('border-2', 'border-rose-500');
-    mostrarError('Todos los campos son obligatorios');
-  }
-  
-  if(e.target.type === 'email'){
-    if(expReg.test(e.target.value)){
-      //console.log('email valido');
-          //console.log('Si hay algo');
-          //Elimina los errores...
-          const error = document.querySelector('p.error');
-            if (error) {
-              error.remove();
-            }
-          e.target.classList.remove('border-2', 'border-rose-500')
-          e.target.classList.add('border-2', 'border-green-500');
-    }else{
-      e.target.classList.remove('border-2', 'border-green-500');
-    e.target.classList.add('border-2', 'border-rose-500');
-      mostrarError('Email no valido');
-    }
-  }
-  
-  if(expReg.test(email.value) && asunto.value !== '' && mensaje.value !== ''){
-    //console.log('Pasaste la validacion');
-    btnEnviar.disabled = false;
-    btnEnviar.classList.remove('cursor-not-allowed', 'opacity-50')
-  }
-}
+//   if(expReg.test(email.value) && asunto.value !== '' && mensaje.value !== ''){
+//     //console.log('Pasaste la validacion');
+//     btnEnviar.disabled = false;
+//     btnEnviar.classList.remove('cursor-not-allowed', 'opacity-50')
+//   }
+// }
 
-function mostrarError(mensaje){
-  const mensajeError = document.createElement('p');
-  mensajeError.innerText = mensaje;
-  mensajeError.classList.add('border-2', 'border-rose-500', 'bg-red-200', 'text-red-600', 'p-3', 'mt-5', 'text-center', 'error');
-  const errores = document.querySelectorAll('.error');
-  if(errores.length === 0){
-    formulario.appendChild(mensajeError);
-  }
-}
+// function mostrarError(mensaje){
+//   const mensajeError = document.createElement('p');
+//   mensajeError.innerText = mensaje;
+//   mensajeError.classList.add('border-2', 'border-rose-500', 'bg-red-200', 'text-red-600', 'p-3', 'mt-5', 'text-center', 'error');
+//   const errores = document.querySelectorAll('.error');
+//   if(errores.length === 0){
+//     formulario.appendChild(mensajeError);
+//   }
+// }
 
-//Envia el email
-function enviarEmail(e){
-  e.preventDefault();
-  //console.log("Enviando...");
-  //Mostrar spinner
-  const spinner = document.querySelector('#spinner');
-  spinner.style.display = 'flex';
+// //Envia el email
+// function enviarEmail(e){
+//   e.preventDefault();
+//   //console.log("Enviando...");
+//   //Mostrar spinner
+//   const spinner = document.querySelector('#spinner');
+//   spinner.style.display = 'flex';
 
-  //Despues de 3 segundos ocultar el spinner y mostrar el mensaje
-  setTimeout( () => {
-    spinner.style.display = 'none';
+//   //Despues de 3 segundos ocultar el spinner y mostrar el mensaje
+//   setTimeout( () => {
+//     spinner.style.display = 'none';
 
-    //Mostrar mensaje que dice se envio correctamente
-    const parrafo = document.createElement('p');
-    parrafo.textContent = 'Se envio correctamente';
-    parrafo.classList.add('text-center', 'p-2', 'mt-8', 'bg-green-600', 'text-white', 'font-bold', 'uppercase')
+//     //Mostrar mensaje que dice se envio correctamente
+//     const parrafo = document.createElement('p');
+//     parrafo.textContent = 'Se envio correctamente';
+//     parrafo.classList.add('text-center', 'p-2', 'mt-8', 'bg-green-600', 'text-white', 'font-bold', 'uppercase')
 
-    //Inserta el parrafo antes del spinner
-    formulario.appendChild(parrafo, spinner); 
+//     //Inserta el parrafo antes del spinner
+//     formulario.appendChild(parrafo, spinner); 
 
-    setTimeout(() => {
-      parrafo.remove();//Elimina el mensaje de exito
-      resetearFormulario();
-      email.classList.remove('border-2', 'border-green-500');
-      asunto.classList.remove('border-2', 'border-green-500');
-      mensaje.classList.remove('border-2', 'border-green-500');
-    },4000);
+//     setTimeout(() => {
+//       parrafo.remove();//Elimina el mensaje de exito
+//       resetearFormulario();
+//       email.classList.remove('border-2', 'border-green-500');
+//       asunto.classList.remove('border-2', 'border-green-500');
+//       mensaje.classList.remove('border-2', 'border-green-500');
+//     },4000);
     
-  }, 3000);
-}
+//   }, 3000);
+// }
 
 //Funcion que resetea formulario
-function resetearFormulario(){
-  formulario.reset();
+// function resetearFormulario(){
+//   formulario.reset();
 
-  iniciarApp();
-}
-
-//Base de datos empleados
-const empleados = [
-  {
-    "nombre": "Juan Pérez",
-    "puesto": "Gerente de Ventas",
-    "salario": 60000,
-    "departamento": "Ventas"
-  },
-  {
-    "nombre": "María García",
-    "puesto": "Desarrollador Senior",
-    "salario": 75000,
-    "departamento": "Tecnología"
-  },
-  {
-    "nombre": "Pedro López",
-    "puesto": "Contador",
-    "salario": 55000,
-    "departamento": "Finanzas"
-  },
-  {
-    "nombre": "Ana Rodríguez",
-    "puesto": "Diseñadora Gráfica",
-    "salario": 48000,
-    "departamento": "Diseño"
-  },
-  {
-    "nombre": "Luis Torres",
-    "puesto": "Analista de Datos",
-    "salario": 62000,
-    "departamento": "Tecnología"
-  },
-  {
-    "nombre": "Carmen Martínez",
-    "puesto": "Recursos Humanos",
-    "salario": 50000,
-    "departamento": "Recursos Humanos"
-  },
-  {
-    "nombre": "Javier Sánchez",
-    "puesto": "Especialista en Marketing",
-    "salario": 58000,
-    "departamento": "Marketing"
-  },
-  {
-    "nombre": "Laura González",
-    "puesto": "Asistente Administrativo",
-    "salario": 42000,
-    "departamento": "Administración"
-  },
-  {
-    "nombre": "Miguel Ríos",
-    "puesto": "Ingeniero de Soporte",
-    "salario": 56000,
-    "departamento": "Tecnología"
-  },
-  {
-    "nombre": "Isabel Castro",
-    "puesto": "Analista de Finanzas",
-    "salario": 59000,
-    "departamento": "Finanzas"
-  }
-];
-
-empleados.map(empleado => console.log(empleado));
+//   iniciarApp();
+// }
+//Fin de proyecto
 
 
-//Bases de datos de autos
-const carros = [
-  {
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "año": 2022,
-    "precio": 25000,
-    "color": "Blanco"
-  },
-  {
-    "marca": "Honda",
-    "modelo": "Civic",
-    "año": 2022,
-    "precio": 26000,
-    "color": "Negro"
-  },
-  {
-    "marca": "Ford",
-    "modelo": "F-150",
-    "año": 2022,
-    "precio": 35000,
-    "color": "Gris"
-  },
-  {
-    "marca": "Chevrolet",
-    "modelo": "Camaro",
-    "año": 2022,
-    "precio": 42000,
-    "color": "Rojo"
-  },
-  {
-    "marca": "Volkswagen",
-    "modelo": "Jetta",
-    "año": 2022,
-    "precio": 28000,
-    "color": "Plata"
-  },
-  {
-    "marca": "Nissan",
-    "modelo": "Altima",
-    "año": 2022,
-    "precio": 27000,
-    "color": "Azul"
-  },
-  {
-    "marca": "BMW",
-    "modelo": "X5",
-    "año": 2022,
-    "precio": 55000,
-    "color": "Blanco"
-  },
-  {
-    "marca": "Mercedes-Benz",
-    "modelo": "C-Class",
-    "año": 2022,
-    "precio": 52000,
-    "color": "Negro"
-  },
-  {
-    "marca": "Audi",
-    "modelo": "A4",
-    "año": 2022,
-    "precio": 49000,
-    "color": "Gris"
-  },
-  {
-    "marca": "Hyundai",
-    "modelo": "Elantra",
-    "año": 2022,
-    "precio": 26000,
-    "color": "Plateado"
-  }
-];
-
-carros.map(carro => console.log(carro));
-
-const gris = carros.filter( carro => carro.color === "Gris");
-console.log(gris)
-
-const ford = carros.some(carro => carro.marca === 'Ford');
-console.log(`Hay marca Ford ? ${ford}`);
-
-const marcas1 = carros.map(carro => {
-  return carro.marca.toString().toUpperCase();
-});
-console.log(marcas1.sort());
-// console.log(marcas1.sort());
-
-const libros = [
-  {
-    "titulo": "Cien años de soledad",
-    "autor": "Gabriel García Márquez",
-    "genero": "Realismo mágico",
-    "anio_publicacion": 1967,
-    "isbn": "978-84-376-0494-7"
-  },
-  {
-    "titulo": "1984",
-    "autor": "George Orwell",
-    "genero": "Ciencia ficción",
-    "anio_publicacion": 1949,
-    "isbn": "978-0451524935"
-  },
-  {
-    "titulo": "El Gran Gatsby",
-    "autor": "F. Scott Fitzgerald",
-    "genero": "Ficción",
-    "anio_publicacion": 1925,
-    "isbn": "978-0-7432-7356-5"
-  },
-  {
-    "titulo": "Matar un ruiseñor",
-    "autor": "Harper Lee",
-    "genero": "Novela",
-    "anio_publicacion": 1960,
-    "isbn": "978-0061120084"
-  },
-  {
-    "titulo": "Don Quijote de la Mancha",
-    "autor": "Miguel de Cervantes",
-    "genero": "Novela de caballerías",
-    "anio_publicacion": 1605,
-    "isbn": "978-8491041882"
-  },
-  {
-    "titulo": "En busca del tiempo perdido",
-    "autor": "Marcel Proust",
-    "genero": "Novela",
-    "anio_publicacion": 1913,
-    "isbn": "978-84-376-0494-7"
-  },
-  {
-    "titulo": "Crimen y castigo",
-    "autor": "Fyodor Dostoevsky",
-    "genero": "Novela",
-    "anio_publicacion": 1866,
-    "isbn": "978-0143107637"
-  },
-  {
-    "titulo": "Ulises",
-    "autor": "James Joyce",
-    "genero": "Ficción",
-    "anio_publicacion": 1922,
-    "isbn": "978-0394700135"
-  },
-  {
-    "titulo": "Los juegos del hambre",
-    "autor": "Suzanne Collins",
-    "genero": "Ciencia ficción",
-    "anio_publicacion": 2008,
-    "isbn": "978-8427202122"
-  },
-  {
-    "titulo": "Orgullo y prejuicio",
-    "autor": "Jane Austen",
-    "genero": "Novela",
-    "anio_publicacion": 1813,
-    "isbn": "978-0141439518"
-  }
-];
-
-libros.map( libro => console.log(libro));
-
+//Proyecto 3. Filtrar y Buscar en base a diferentes Campos
 
 
 
