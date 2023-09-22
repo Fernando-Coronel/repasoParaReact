@@ -420,150 +420,150 @@
 // })
 // .catch(error => console.log(error))
 
-console.log('Metodos de arreglos');
+// console.log('Metodos de arreglos');
 
-const autos = [
-        {marca: 'BMW',  modelo: 'Serie 3', year: 2012, precio: 30000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
-        {marca: 'Audi', modelo: 'A4',  year: 2018, precio: 40000, puertas: 4, color: 'Negro', transmision: 'automatico'},{marca: 'Audi', modelo: 'A4',  year: 2018, precio: 40000, puertas: 4, color: 'Negro', transmision: 'automatico'},
-        {marca: 'Ford', modelo: 'Mustang',  year: 2015, precio: 20000, puertas: 2, color: 'Blanco', transmision: 'automatico'},{marca: 'Audi', modelo: 'A6',  year: 2010, precio: 35000, puertas: 4, color: 'Negro', transmision: 'automatico'},
-        {marca: 'BMW', modelo: 'Serie 5',  year: 2016, precio: 70000, puertas: 4, color: 'Rojo', transmision: 'automatico'},{marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2015, precio: 25000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
-        {marca: 'Chevrolet', modelo: 'Camaro',  year: 2018, precio: 60000, puertas: 2, color: 'Rojo', transmision: 'manual'},{marca: 'Ford', modelo: 'Mustang',  year: 2019, precio: 80000, puertas: 2, color: 'Rojo', transmision: 'manual'},
-        {marca: 'Dodge', modelo: 'Challenger',  year: 2017, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
-        {marca: 'Audi', modelo: 'A3',  year: 2017, precio: 55000, puertas: 2, color: 'Negro', transmision: 'manual'},{marca: 'Dodge', modelo: 'Challenger',  year: 2012, precio: 25000, puertas: 2, color: 'Rojo', transmision: 'manual'},
-        {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 45000, puertas: 4, color: 'Azul', transmision: 'automatico'},
-        {marca: 'BMW', modelo: 'Serie 5',  year: 2019, precio: 90000, puertas: 4, color: 'Blanco', transmision: 'automatico'},{marca: 'Ford', modelo: 'Mustang',  year: 2017, precio: 60000, puertas: 2, color: 'Negro', transmision: 'manual'},
-        {marca: 'Dodge', modelo: 'Challenger',  year: 2015, precio: 35000, puertas: 2, color: 'Azul', transmision: 'automatico'},
-        {marca: 'BMW', modelo: 'Serie 3',  year: 2018, precio: 50000, puertas: 4, color: 'Blanco', transmision: 'automatico'},{marca: 'BMW', modelo: 'Serie 5',  year: 2017, precio: 80000, puertas: 4, color: 'Negro', transmision: 'automatico'},
-        {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
-        {marca: 'Audi', modelo: 'A4',  year: 2016, precio: 30000, puertas: 4, color: 'Azul', transmision: 'automatico'}
-];
+// const autos = [
+//         {marca: 'BMW',  modelo: 'Serie 3', year: 2012, precio: 30000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+//         {marca: 'Audi', modelo: 'A4',  year: 2018, precio: 40000, puertas: 4, color: 'Negro', transmision: 'automatico'},{marca: 'Audi', modelo: 'A4',  year: 2018, precio: 40000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+//         {marca: 'Ford', modelo: 'Mustang',  year: 2015, precio: 20000, puertas: 2, color: 'Blanco', transmision: 'automatico'},{marca: 'Audi', modelo: 'A6',  year: 2010, precio: 35000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+//         {marca: 'BMW', modelo: 'Serie 5',  year: 2016, precio: 70000, puertas: 4, color: 'Rojo', transmision: 'automatico'},{marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2015, precio: 25000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+//         {marca: 'Chevrolet', modelo: 'Camaro',  year: 2018, precio: 60000, puertas: 2, color: 'Rojo', transmision: 'manual'},{marca: 'Ford', modelo: 'Mustang',  year: 2019, precio: 80000, puertas: 2, color: 'Rojo', transmision: 'manual'},
+//         {marca: 'Dodge', modelo: 'Challenger',  year: 2017, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+//         {marca: 'Audi', modelo: 'A3',  year: 2017, precio: 55000, puertas: 2, color: 'Negro', transmision: 'manual'},{marca: 'Dodge', modelo: 'Challenger',  year: 2012, precio: 25000, puertas: 2, color: 'Rojo', transmision: 'manual'},
+//         {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 45000, puertas: 4, color: 'Azul', transmision: 'automatico'},
+//         {marca: 'BMW', modelo: 'Serie 5',  year: 2019, precio: 90000, puertas: 4, color: 'Blanco', transmision: 'automatico'},{marca: 'Ford', modelo: 'Mustang',  year: 2017, precio: 60000, puertas: 2, color: 'Negro', transmision: 'manual'},
+//         {marca: 'Dodge', modelo: 'Challenger',  year: 2015, precio: 35000, puertas: 2, color: 'Azul', transmision: 'automatico'},
+//         {marca: 'BMW', modelo: 'Serie 3',  year: 2018, precio: 50000, puertas: 4, color: 'Blanco', transmision: 'automatico'},{marca: 'BMW', modelo: 'Serie 5',  year: 2017, precio: 80000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+//         {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+//         {marca: 'Audi', modelo: 'A4',  year: 2016, precio: 30000, puertas: 4, color: 'Azul', transmision: 'automatico'}
+// ];
 
-console.log('Metodo for loop');
-for (let i = 0; i < autos.length; i++) {
-  console.log(autos[i])
-}
+// console.log('Metodo for loop');
+// for (let i = 0; i < autos.length; i++) {
+//   console.log(autos[i])
+// }
 
-console.log('Metodo ForEach');
-const autos1 = autos.forEach(auto => console.log(auto))
+// console.log('Metodo ForEach');
+// const autos1 = autos.forEach(auto => console.log(auto))
 
-console.log('Metodo map');
+// console.log('Metodo map');
 
-const marcas = autos.map(auto => {
-  return auto.marca.toString().toUpperCase();
-});
+// const marcas = autos.map(auto => {
+//   return auto.marca.toString().toUpperCase();
+// });
 
-console.log(marcas)
-//Método sort sirve para ordenar los arrays en orden alfabético.
-console.log("Metodo sort");
-console.log( marcas.sort())
+// console.log(marcas)
+// //Método sort sirve para ordenar los arrays en orden alfabético.
+// console.log("Metodo sort");
+// console.log( marcas.sort())
 
-console.log('Metodo filter');
-const autosRojos = autos.filter(auto => auto.color === 'Rojo'
-);
-console.log(autosRojos);
+// console.log('Metodo filter');
+// const autosRojos = autos.filter(auto => auto.color === 'Rojo'
+// );
+// console.log(autosRojos);
 
-const autos2018 = autos.filter(auto => auto.year ===2018);
-console.log(autos2018);
+// const autos2018 = autos.filter(auto => auto.year ===2018);
+// console.log(autos2018);
 
-const cuatroPuertas = autos.filter(auto => auto.puertas === 4);
-console.log(cuatroPuertas);
+// const cuatroPuertas = autos.filter(auto => auto.puertas === 4);
+// console.log(cuatroPuertas);
 
-const autoAutomatico = autos.filter(auto => auto.transmision === 'automatico');
-console.log(autoAutomatico);
+// const autoAutomatico = autos.filter(auto => auto.transmision === 'automatico');
+// console.log(autoAutomatico);
 
-const marcaBMW = autos.filter(auto => auto.marca === 'BMW');
-console.log(marcaBMW);
+// const marcaBMW = autos.filter(auto => auto.marca === 'BMW');
+// console.log(marcaBMW);
 
-const mayores30mil = autos.filter(auto => auto.precio > 30000);
-console.log(mayores30mil);
+// const mayores30mil = autos.filter(auto => auto.precio > 30000);
+// console.log(mayores30mil);
 
-const rangoAutos = autos.filter(auto => auto.year >= 2015 && auto.year <=2017);
-console.log(rangoAutos);
+// const rangoAutos = autos.filter(auto => auto.year >= 2015 && auto.year <=2017);
+// console.log(rangoAutos);
 
-console.log('Metodo find');
-const primerResultado = autos.find(auto => auto.marca === 'BMW');
-console.log(primerResultado);
+// console.log('Metodo find');
+// const primerResultado = autos.find(auto => auto.marca === 'BMW');
+// console.log(primerResultado);
 
-console.log('Metodo reduce');
-const totalInventarios = autos.reduce((total,auto) => total + auto.precio,0);
-console.log(`$${totalInventarios}`);
+// console.log('Metodo reduce');
+// const totalInventarios = autos.reduce((total,auto) => total + auto.precio,0);
+// console.log(`$${totalInventarios}`);
 
-console.log('Metodo some');
-const existe1 = autos.some(auto => auto.marca === 'Ferrari');
-console.log(`Hay marca Ferrari ? ${existe1}`);
+// console.log('Metodo some');
+// const existe1 = autos.some(auto => auto.marca === 'Ferrari');
+// console.log(`Hay marca Ferrari ? ${existe1}`);
 
-const existe2 = autos.some(auto => auto.marca === 'BMW');
-console.log(`Hay marca BMW ? ${existe2}`);
+// const existe2 = autos.some(auto => auto.marca === 'BMW');
+// console.log(`Hay marca BMW ? ${existe2}`);
 
-//Programacion Orientada a Objetos
-console.log("Programacion Orientada a Objetos");
-console.log("Clases");
-class Pelicula{
- constructor(id, nombre){
-   this.id = id;
-   this.nombre = nombre;
- } 
+// //Programacion Orientada a Objetos
+// console.log("Programacion Orientada a Objetos");
+// console.log("Clases");
+// class Pelicula{
+//  constructor(id, nombre){
+//    this.id = id;
+//    this.nombre = nombre;
+//  } 
 
-  reproducir(){
-    return `Reproduciendo pelicula ${this.nombre}`
-  }
+//   reproducir(){
+//     return `Reproduciendo pelicula ${this.nombre}`
+//   }
   
-}
+// }
 
-const pelicula1 = new Pelicula(1,"Harry Potter");
-console.log(pelicula1);
-console.log(pelicula1.reproducir());
+// const pelicula1 = new Pelicula(1,"Harry Potter");
+// console.log(pelicula1);
+// console.log(pelicula1.reproducir());
 
-const pelicula2 = new Pelicula(2,"Hombre Araña");
-console.log(pelicula2);
-console.log(pelicula2.reproducir());
+// const pelicula2 = new Pelicula(2,"Hombre Araña");
+// console.log(pelicula2);
+// console.log(pelicula2.reproducir());
 
-//Herencia
-console.log("Herencia");
-class Serie extends Pelicula{
-  constructor(id, nombre, genero, capitulo){
-    super(id, nombre)
-    this.genero = genero;
-    this.capitulo = capitulo;
-  }
+// //Herencia
+// console.log("Herencia");
+// class Serie extends Pelicula{
+//   constructor(id, nombre, genero, capitulo){
+//     super(id, nombre)
+//     this.genero = genero;
+//     this.capitulo = capitulo;
+//   }
 
-  reproducirCapitulo(){
-    return `Reproduciendo serie ${this.nombre} en el capitulo ${this.capitulo}`
-  }
-}
+//   reproducirCapitulo(){
+//     return `Reproduciendo serie ${this.nombre} en el capitulo ${this.capitulo}`
+//   }
+// }
 
-const serie1 = new Serie(1,"Mr.Robot","Suspenso",10);
-console.log(serie1);
-console.log(serie1.reproducirCapitulo());
+// const serie1 = new Serie(1,"Mr.Robot","Suspenso",10);
+// console.log(serie1);
+// console.log(serie1.reproducirCapitulo());
 
-const serie2 = new Serie(2,"El juego del calamar","Drama",23);
-console.log(serie2);
-console.log(serie2.reproducirCapitulo());
+// const serie2 = new Serie(2,"El juego del calamar","Drama",23);
+// console.log(serie2);
+// console.log(serie2.reproducirCapitulo());
 
-//Introduccion a Arrays
-const array1 = [3,4,true,"Javascript", "React"];
+// //Introduccion a Arrays
+// const array1 = [3,4,true,"Javascript", "React"];
 
-console.table(array1);
-console.log(array1[3]);
-console.log(array1.length);
+// console.table(array1);
+// console.log(array1[3]);
+// console.log(array1.length);
 
-//Manipulacion de arrays
-const tecnologias = ["HTML","CSS","JavaScript","React"];
-//Añadir elementos
-tecnologias.push("GraphQL");//Lo agrega al final del arreglo
-console.table(tecnologias);
-//Añadirlo al inicio del arreglo
-tecnologias.unshift("Pseint");
-console.table(tecnologias);
+// //Manipulacion de arrays
+// const tecnologias = ["HTML","CSS","JavaScript","React"];
+// //Añadir elementos
+// tecnologias.push("GraphQL");//Lo agrega al final del arreglo
+// console.table(tecnologias);
+// //Añadirlo al inicio del arreglo
+// tecnologias.unshift("Pseint");
+// console.table(tecnologias);
 
-const nuevoArreglo1 = [...tecnologias, "Pseint"];//Lo añade al ultimo
-console.table(nuevoArreglo1);
-const nuevoArreglo2 = ["Pseint", ...tecnologias];//Lo añade al inicio
-console.table(nuevoArreglo2);
+// const nuevoArreglo1 = [...tecnologias, "Pseint"];//Lo añade al ultimo
+// console.table(nuevoArreglo1);
+// const nuevoArreglo2 = ["Pseint", ...tecnologias];//Lo añade al inicio
+// console.table(nuevoArreglo2);
 
-//Eliminar elemento final de un arreglo
-nuevoArreglo1.pop();
-console.table(nuevoArreglo1);
+// //Eliminar elemento final de un arreglo
+// nuevoArreglo1.pop();
+// console.table(nuevoArreglo1);
 
 
 //Proyecto 1. carrito de compras
