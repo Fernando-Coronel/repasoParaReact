@@ -690,6 +690,129 @@ console.table(nuevoArreglo1);
 //}
 //Fin del proyecto
 
+//Proyecto 2. Simulador de envios de emails
+const email = document.querySelector('#email');
+const asunto = document.querySelector('#asunto');
+const mensaje = document.querySelector('#mensaje');
+const formulario = document.querySelector('#enviar-mail');
+const btnEnviar = document.querySelector('#enviar');
+const btnReset = document.querySelector('#resetBtn');
+const expReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+eventListeners();
+function eventListeners(){
+  //Cuando inicia la app
+  document.addEventListener('DOMContentLoaded', iniciarApp);
+
+  //Campos del formulario
+  email.addEventListener('blur', validarFormulario);
+  asunto.addEventListener('blur', validarFormulario);
+  mensaje.addEventListener('blur', validarFormulario);
+
+  //Reinicia el formulario
+  btnReset.addEventListener('click', resetearFormulario);
+
+  //Enviar formulario
+  formulario.addEventListener('submit', enviarEmail);
+}
+
+//Funciones
+function iniciarApp(){
+  btnEnviar.disabled = true;
+  btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
+}
+
+function validarFormulario(e){
+  
+  
+  if(e.target.value.length > 0){
+    //console.log('Si hay algo');
+      //Elimina los errores...
+  const error = document.querySelector('p.error');
+  if(error){
+     error.remove(); 
+  }
+     e.target.classList.remove('border-2', 'border-rose-500')
+    e.target.classList.add('border-2', 'border-green-500');
+  }else{
+    e.target.classList.remove('border-2', 'border-green-500');
+    e.target.classList.add('border-2', 'border-rose-500');
+    mostrarError('Todos los campos son obligatorios');
+  }
+  
+  if(e.target.type === 'email'){
+    if(expReg.test(e.target.value)){
+      //console.log('email valido');
+          //console.log('Si hay algo');
+          //Elimina los errores...
+          const error = document.querySelector('p.error');
+            if (error) {
+              error.remove();
+            }
+          e.target.classList.remove('border-2', 'border-rose-500')
+          e.target.classList.add('border-2', 'border-green-500');
+    }else{
+      e.target.classList.remove('border-2', 'border-green-500');
+    e.target.classList.add('border-2', 'border-rose-500');
+      mostrarError('Email no valido');
+    }
+  }
+  
+  if(expReg.test(email.value) && asunto.value !== '' && mensaje.value !== ''){
+    //console.log('Pasaste la validacion');
+    btnEnviar.disabled = false;
+    btnEnviar.classList.remove('cursor-not-allowed', 'opacity-50')
+  }
+}
+
+function mostrarError(mensaje){
+  const mensajeError = document.createElement('p');
+  mensajeError.innerText = mensaje;
+  mensajeError.classList.add('border-2', 'border-rose-500', 'bg-red-200', 'text-red-600', 'p-3', 'mt-5', 'text-center', 'error');
+  const errores = document.querySelectorAll('.error');
+  if(errores.length === 0){
+    formulario.appendChild(mensajeError);
+  }
+}
+
+//Envia el email
+function enviarEmail(e){
+  e.preventDefault();
+  //console.log("Enviando...");
+  //Mostrar spinner
+  const spinner = document.querySelector('#spinner');
+  spinner.style.display = 'flex';
+
+  //Despues de 3 segundos ocultar el spinner y mostrar el mensaje
+  setTimeout( () => {
+    spinner.style.display = 'none';
+
+    //Mostrar mensaje que dice se envio correctamente
+    const parrafo = document.createElement('p');
+    parrafo.textContent = 'Se envio correctamente';
+    parrafo.classList.add('text-center', 'p-2', 'mt-8', 'bg-green-600', 'text-white', 'font-bold', 'uppercase')
+
+    //Inserta el parrafo antes del spinner
+    formulario.appendChild(parrafo, spinner); 
+
+    setTimeout(() => {
+      parrafo.remove();//Elimina el mensaje de exito
+      resetearFormulario();
+      email.classList.remove('border-2', 'border-green-500');
+      asunto.classList.remove('border-2', 'border-green-500');
+      mensaje.classList.remove('border-2', 'border-green-500');
+    },4000);
+    
+  }, 3000);
+}
+
+//Funcion que resetea formulario
+function resetearFormulario(){
+  formulario.reset();
+
+  iniciarApp();
+}
+
 //Base de datos empleados
 const empleados = [
   {
