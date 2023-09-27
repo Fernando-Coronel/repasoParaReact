@@ -97,44 +97,91 @@
   </div> -->
 
   <!-- Proyecto 3. Filtrar y Buscar en base a diferentes Campos -->
-  <div class="container mx-auto grid grid-rows-4 grid-flow-col gap-2 mt-4">
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Marca</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Año</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Precio min</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Precio Max</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Puertas</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Transmisión</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
-    <label for="discount" class="block mb-2 text-sm font-medium text-black dark:text-white">Color</label>
-                <select id="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-blue-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option selected="">No</option>
-                    <option value="5">5%</option>
-                </select>
+  <h1 class="my-4 mx-4 text-xl font-semibold">Buscador de autos</h1>
+  <div class="container my-4">
+    <form id="buscador">
+        <div class="row">
+          <div class="three columns">
+            <label for="marca">Marca</label>
+            <select class="u-full-width" id="marca">
+              <option value="">Seleccione</option>
+              <option value="Audi">Audi</option>
+              <option value="BMW">BMW</option>
+              <option value="Chevrolet">Chevrolet</option>
+              <option value="Dodge">Dodge</option>
+              <option value="Ford">Ford</option>
+              <option value="Mercedes Benz">Mercedez Benz</option>
+            </select>
+          </div>
+          <div class="three columns">
+            <label for="year">Año</label>
+            <select class="u-full-width" id="year">
+              <option value="">Seleccione</option>
+            </select>
+          </div>
+          <div class="three columns">
+            <label for="minimo">Precio min</label>
+            <select class="u-full-width" id="minimo">
+              <option value="">Seleccione</option>
+              <option value="20000">$20,000</option>
+              <option value="20000">$30,000</option>
+              <option value="20000">$40,000</option>
+              <option value="20000">$50,000</option>
+              <option value="20000">$60,000</option>
+              <option value="20000">$70,000</option>
+              <option value="20000">$80,000</option>
+              <option value="20000">$90,000</option>
+            </select>
+          </div>
+          <div class="three columns">
+            <label for="maximo">Precio max</label>
+            <select class="u-full-width" id="maximo">
+              <option value="">Seleccione</option>
+              <option value="20000">$20,000</option>
+              <option value="20000">$30,000</option>
+              <option value="20000">$40,000</option>
+              <option value="20000">$50,000</option>
+              <option value="20000">$60,000</option>
+              <option value="20000">$70,000</option>
+              <option value="20000">$80,000</option>
+              <option value="20000">$90,000</option>
+            </select>
+          </div>
+          <div class="row">
+          <div class="three columns">
+            <label for="puertas">Puertas</label>
+            <select class="u-full-width" id="puertas">
+              <option value="">Seleccione</option>
+              <option value="2">2</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="three columns">
+            <label for="transmision">Transmision</label>
+            <select class="u-full-width" id="transmision">
+              <option value="">Seleccione</option>
+              <option value="automatico">Automatico</option>
+              <option value="estandar">Estandar</option>
+            </select>
+          </div>
+          <div class="three columns">
+            <label for="color">Color</label>
+            <select class="u-full-width" id="color">
+              <option value="">Seleccione</option>
+              <option value="negro">Negro</option>
+              <option value="azul">Azul</option>
+              <option value="blanco">Blanco</option>
+              <option value="rojo">Rojo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+    <h2 class="my-4 text-xl font-semibold">Resultados</h2>
+    <div id="resultado"></div>
   </div>
   <script src="script.js" type="module"></script>
+  <script src="db.js"></script>
   <!-- <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script> -->
 </body>
 

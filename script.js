@@ -815,7 +815,7 @@
 
 
 //Proyecto 3. Filtrar y Buscar en base a diferentes Campos
-
+console.log(autos)
 
 
 
