@@ -818,13 +818,18 @@
 
 //Variables
 const resultado = document.querySelector("#resultado");
-
+const year = document.querySelector("#year")
+const max = new Date().getFullYear();
+const min = max - 13 ;
 
 
 //Eventos
 document.addEventListener('DOMContentLoaded', () => {
-
+  //Muestra los automoviles al cargar
   mostrarAutos();
+
+  //Llenar las opciones de años
+  llenarSelect();
   
 })
 
@@ -839,13 +844,23 @@ function mostrarAutos(){
   const autosHTML = document.createElement('p');
 
   autosHTML.textContent = `
-    ${marca} - ${modelo} - ${year} - ${precio} - ${puertas} Puertas - ${color} - Transmision: ${transmision} 
+    ${marca} ${modelo} - ${year} - Precio $${precio} - ${puertas} Puertas - Color ${color} - Transmision: ${transmision} 
   `  
   resultado.appendChild(autosHTML);  
   });
 
 }
 
+function llenarSelect(){
+
+  for(let i = max; i >= min; i--){
+    const opcion = document.createElement('option');
+    opcion.value = i;
+    opcion.textContent = i;
+    year.appendChild(opcion);//Agregar las opciones del año al select
+  }
+
+}
 
 
 
