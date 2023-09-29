@@ -815,15 +815,36 @@
 
 
 //Proyecto 3. Filtrar y Buscar en base a diferentes Campos
-console.log(autos)
+
+//Variables
+const resultado = document.querySelector("#resultado");
+
+
+
+//Eventos
+document.addEventListener('DOMContentLoaded', () => {
+
+  mostrarAutos();
+  
+})
 
 
 
 
+//Funciones
+function mostrarAutos(){
+  
+  autos.forEach( auto => {
+  const {marca, modelo, year, precio, puertas, color, transmision} = auto;
+  const autosHTML = document.createElement('p');
 
+  autosHTML.textContent = `
+    ${marca} - ${modelo} - ${year} - ${precio} - ${puertas} Puertas - ${color} - Transmision: ${transmision} 
+  `  
+  resultado.appendChild(autosHTML);  
+  });
 
-
-
+}
 
 
 
