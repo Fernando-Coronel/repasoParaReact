@@ -999,75 +999,202 @@
 //    return auto;
 // } 
  
-//Local storage
-//Ingresar datos en el local storage
 
-localStorage.setItem("Nombre", "Fernando");
+//Local storage 
+//Ingresar datos en el local storage 
 
-const producto = {
-  nombre: "Monitor 24 pulgadas",
-  precio: 2500
+// localStorage.setItem("Nombre", "Fernando");
+
+// const producto = {
+//   nombre: "Monitor 24 pulgadas",
+//   precio: 2500
+// }
+
+// const productoString = JSON.stringify(producto);
+// localStorage.setItem("Producto", productoString);
+
+// const nombres = ["Fernando", "Elena", "Fatima", "Leonel"];
+
+// const nombresString = JSON.stringify(nombres);
+// localStorage.setItem("Nombres", nombresString);
+
+// const carrosString = JSON.stringify(['Audi', 'BMW', 'Chevrolet', 'Ford']);
+// localStorage.setItem('Carros', carrosString);
+
+
+// //Obtener datos del local Storage 
+
+// const getNombre = localStorage.getItem("Nombre");
+// console.log(getNombre);
+
+// const getProducto = localStorage.getItem("Producto");
+// console.log(getProducto);
+
+// const getNombres = localStorage.getItem("Nombres");
+// console.log(getNombres);
+
+// const getCarros = localStorage.getItem('Carros');
+// console.log(getCarros);
+
+// const convertirNombres = JSON.parse(getNombres);
+// console.log(convertirNombres);
+
+// const convertirProducto = JSON.parse(getProducto);
+// console.log(convertirProducto);
+
+// const convertirCarros = JSON.parse(getCarros);
+// console.log(convertirCarros);
+
+// //Eliminar datos de local storage 
+// localStorage.removeItem("Nombre");
+
+// //Actualizar un registro 
+
+// const nombresJSON = JSON.parse(localStorage.getItem("Nombres"));
+// console.log(nombresJSON);
+// nombresJSON.push("Nuevo nombre");
+// console.log(nombresJSON);
+// localStorage.setItem("Nombres", JSON.stringify(nombresJSON));
+
+// const productoJSON = JSON.parse(localStorage.getItem("Producto"));
+// productoJSON.color = "Negro";
+// productoJSON.input = "HDMI";
+// localStorage.setItem("Producto", JSON.stringify(productoJSON));
+
+// const carrosJSON = JSON.parse(localStorage.getItem('Carros'));
+// carrosJSON.push('Nuevo carro');
+// console.log(carrosJSON);
+// localStorage.setItem('Carros', JSON.stringify(carrosJSON));
+
+// //Elimina todo el local storage 
+// //localStorage.clear();
+
+//Proyecto 4. Almacenar textos en local storage
+
+const formulario = document.querySelector("#formulario");
+const listaTareas = document.querySelector("#lista-tareas");
+let tareas = [];
+
+//Event listeners
+eventListeners();
+
+function eventListeners(){
+  //Cuando el usuario agrega una nueva tarea
+  formulario.addEventListener('submit', agregarTarea);
+
+  //Cuando el documento esta listo
+  document.addEventListener('DOMContentLoaded', () =>{
+    tareas = JSON.parse(localStorage.getItem('Tareas')) || [];
+    console.log(tareas);
+    crearHTML();
+  });
+  
 }
 
-const productoString = JSON.stringify(producto);
-localStorage.setItem("Producto", productoString);
 
-const nombres = ["Fernando", "Elena", "Fatima", "Leonel"];
+//Funciones
 
-const nombresString = JSON.stringify(nombres);
-localStorage.setItem("Nombres", nombresString);
+function agregarTarea(e){
+  e.preventDefault();
+  // console.log("CLick en el formulario")
+
+  //textArea donde el usuario escribe la tarea
+  const tarea = document.querySelector('#tarea').value;
+  console.log(tarea);
+
+  //Validacion
+  if(tarea === ''){
+    mostrarError("No puede ir tarea vacia");
+    return;//Evita que se ejecuten más lineas de codigo
+  }
+
+  const tareaObj = {
+    id: Date.now(),
+    tarea
+  }
+
+  // console.log("Agregando tarea...")
+  //Añadir el arreglo de tareas
+
+  tareas = [...tareas, tareaObj];
+  // console.log(tareas);
+
+  //Una vez agregado vamos a crear el HTML
+  crearHTML();
+
+  //Reiniciar el formulario
+  formulario.reset();
+}
+
+//Mostrar mensaje de error
+function mostrarError(error){
+  const mensajeError = document.createElement('p');
+  mensajeError.textContent = error
+  mensajeError.classList.add('error');
+
+  //Insertarlo en el contenido
+  const contenido = document.querySelector('#contenido');
+  contenido.appendChild(mensajeError);
+
+  setTimeout(() =>{
+    mensajeError.remove();
+  },3000)
+}
+
+//Muestra un listado de las tareas
+function crearHTML(){
+  
+  limpiarHTML();
+  
+  if(tareas.length > 0){
+    tareas.forEach( tarea => {
+      //Agregar un boton de eliminar
+      const btnEliminar = document.createElement('a');
+      btnEliminar.classList.add('borrar-tarea');
+      btnEliminar.innerText = 'X';
+
+      //Añadir la funcion de eliminar
+      btnEliminar.onclick = () => {
+        borrarTarea(tarea.id);
+      }
+      
+      //Crear HMTL
+      const li = document.createElement('li');
+
+      //Añadir el texto
+      li.innerText = tarea.tarea;
+
+      //Asignar el boton de eliminar
+      li.appendChild(btnEliminar);
+
+      //Insertarlo en el HTML
+      listaTareas.appendChild(li);
+    });
+  }
+
+  sincronizarStorage();
+}
+
+//Agregar las tareas actuales a localStorage
+function sincronizarStorage(){
+  localStorage.setItem('Tareas', JSON.stringify(tareas))
+}
+
+//Eliminar una tarea
+function borrarTarea(id){
+  console.log("Borrando...", id);
+  tareas = tareas.filter( tarea => tarea.id !== id)
+  // console.log(tareas);
+  crearHTML();
+}
 
 
-//Obtener datos del local Storage
-
-const getNombre = localStorage.getItem("Nombre");
-console.log(getNombre);
-
-const getProducto = localStorage.getItem("Producto");
-console.log(getProducto);
-
-const getNombres = localStorage.getItem("Nombres");
-console.log(getNombres);
-
-const convertirNombres = JSON.parse(getNombres);
-console.log(convertirNombres);
-
-const convertirProducto = JSON.parse(getProducto);
-console.log(convertirProducto);
-
-//Eliminar datos de local storage
-localStorage.removeItem("Nombre");
-
-//Actualizar un registro
-
-const nombresJSON = JSON.parse(localStorage.getItem("Nombres"));
-console.log(nombresJSON);
-nombresJSON.push("Nuevo nombre");
-console.log(nombresJSON);
-localStorage.setItem("Nombres", JSON.stringify(nombresJSON));
-
-const productoJSON = JSON.parse(localStorage.getItem("Producto"));
-productoJSON.color = "Negro";
-productoJSON.input = "HDMI";
-localStorage.setItem("Producto", JSON.stringify(productoJSON));
-
-//Elimina todo el local storage
-localStorage.clear();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Limpiar HTML
+function limpiarHTML(){
+  while(listaTareas.firstChild){
+    listaTareas.removeChild(listaTareas.firstChild);
+  }
+}
 
 
 
