@@ -688,6 +688,7 @@
     //contenedorCarrito.removeChild(contenedorCarrito.firstChild);
   //}
 //}
+
 //Fin del proyecto
 
 
@@ -811,6 +812,7 @@
 
 //   iniciarApp();
 // }
+
 //Fin de proyecto
 
 
@@ -998,7 +1000,8 @@
 //    }
 //    return auto;
 // } 
- 
+
+// Fin del proyecto
 
 //Local storage 
 //Ingresar datos en el local storage 
@@ -1069,6 +1072,8 @@
 // //Elimina todo el local storage 
 // //localStorage.clear();
 
+// Fin local storage
+
 //Proyecto 4. Almacenar textos en local storage
 
 // const formulario = document.querySelector("#formulario");
@@ -1090,7 +1095,6 @@
 //   });
   
 // }
-
 
 // //Funciones
 
@@ -1286,7 +1290,6 @@
 //   carritoHTML();
 // }
 
-
 // //Muestra el carrito de compras en el HTML
 // function carritoHTML(){
 //   //Limpiar el HTML
@@ -1320,7 +1323,6 @@
 //   localStorage.setItem('Carrito', JSON.stringify(articulosCarrito));
 // }
 
-
 // //Elimina los cursos del tbody
 // function limpiarHTML(){
 //   //Forma lenta
@@ -1331,30 +1333,36 @@
 //     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
 //   }
 // }
+
 //Fin del proyecto
 
 //Fechas en javaScript
+// const diaHoy = new Date();
+// let valor;
 
-const diaHoy = new Date();
-let valor;
+// valor = diaHoy;
+// valor = diaHoy.getFullYear();
+// valor = diaHoy.getMonth();
+// valor = diaHoy.getMinutes();
+// valor = diaHoy.getHours();
+// valor = diaHoy.getTime();
 
-valor = diaHoy;
-valor = diaHoy.getFullYear();
-valor = diaHoy.getMonth();
-valor = diaHoy.getMinutes();
-valor = diaHoy.getHours();
-valor = diaHoy.getTime();
+// console.log(valor);
 
-console.log(valor);
+// //Uso de librería moment.js(Es para dar formato a fecha y hora)
+// // const moment = require('moment');
 
+// moment.locale('es');
+// let mometFormat1 = moment().format('Do MMMM YYYY h:mm:ss a');
+// console.log(mometFormat1);
 
+// let momentFormat2 = moment().format('LLLL', diaHoy);
+// console.log(momentFormat2);
 
+// let momentFormat3 = moment().add(3, 'days').calendar();
+// console.log(momentFormat3);
 
-
-
-
-
-
+//Fin de fechas
 
 
 
