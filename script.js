@@ -1350,9 +1350,9 @@
 // console.log(valor);
 
 // //Uso de librería moment.js(Es para dar formato a fecha y hora)
-// // const moment = require('moment');
 
 // moment.locale('es');
+
 // let mometFormat1 = moment().format('Do MMMM YYYY h:mm:ss a');
 // console.log(mometFormat1);
 
