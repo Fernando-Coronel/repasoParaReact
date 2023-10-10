@@ -1365,16 +1365,44 @@
 //Fin de fechas
 
 //Prototypes o prototipos
+const cliente = {
+  nombre: "Fernando",
+  saldo: 900
+}
 
+console.log(cliente);
+console.log(typeof cliente);
 
+function Cliente(nombre, saldo){
+  this.nombre = nombre;
+  this.saldo = saldo;
+}
 
+const cliente1 = new Cliente("Fernando", 900);
+console.log(cliente1);
+console.log(typeof cliente1);
 
+function formatearcliente(cliente){
+  const {nombre, saldo} = cliente;
+  return `${nombre} tiene un saldo de ${saldo} pesos`;
+}
 
+console.log(formatearcliente(cliente1));
 
+function formatearEmpresa(empresa){
+  const {nombre, saldo, categoria} = empresa;
+  return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`;
+}
 
+function Empresa(nombre, saldo, categoria){
+  this.nombre = nombre;
+  this.saldo = saldo;
+  this.categoria = categoria;
+}
 
+const empresa1 = new Empresa("Fernando", 900, "Soporte TI");
 
-
+console.log(formatearEmpresa(empresa1));
 
 
 
