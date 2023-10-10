@@ -1071,132 +1071,267 @@
 
 //Proyecto 4. Almacenar textos en local storage
 
-const formulario = document.querySelector("#formulario");
-const listaTareas = document.querySelector("#lista-tareas");
-let tareas = [];
+// const formulario = document.querySelector("#formulario");
+// const listaTareas = document.querySelector("#lista-tareas");
+// let tareas = [];
 
-//Event listeners
-eventListeners();
+// //Event listeners
+// eventListeners();
 
-function eventListeners(){
-  //Cuando el usuario agrega una nueva tarea
-  formulario.addEventListener('submit', agregarTarea);
+// function eventListeners(){
+//   //Cuando el usuario agrega una nueva tarea
+//   formulario.addEventListener('submit', agregarTarea);
 
-  //Cuando el documento esta listo
-  document.addEventListener('DOMContentLoaded', () =>{
-    tareas = JSON.parse(localStorage.getItem('Tareas')) || [];
-    console.log(tareas);
-    crearHTML();
-  });
+//   //Cuando el documento esta listo
+//   document.addEventListener('DOMContentLoaded', () =>{
+//     tareas = JSON.parse(localStorage.getItem('Tareas')) || [];
+//     console.log(tareas);
+//     crearHTML();
+//   });
   
-}
+// }
 
 
-//Funciones
+// //Funciones
 
-function agregarTarea(e){
-  e.preventDefault();
-  // console.log("CLick en el formulario")
+// function agregarTarea(e){
+//   e.preventDefault();
+//   // console.log("CLick en el formulario")
 
-  //textArea donde el usuario escribe la tarea
-  const tarea = document.querySelector('#tarea').value;
-  console.log(tarea);
+//   //textArea donde el usuario escribe la tarea
+//   const tarea = document.querySelector('#tarea').value;
+//   console.log(tarea);
 
-  //Validacion
-  if(tarea === ''){
-    mostrarError("No puede ir tarea vacia");
-    return;//Evita que se ejecuten más lineas de codigo
-  }
+//   //Validacion
+//   if(tarea === ''){
+//     mostrarError("No puede ir tarea vacia");
+//     return;//Evita que se ejecuten más lineas de codigo
+//   }
 
-  const tareaObj = {
-    id: Date.now(),
-    tarea
-  }
+//   const tareaObj = {
+//     id: Date.now(),
+//     tarea
+//   }
 
-  // console.log("Agregando tarea...")
-  //Añadir el arreglo de tareas
+//   // console.log("Agregando tarea...")
+//   //Añadir el arreglo de tareas
 
-  tareas = [...tareas, tareaObj];
-  // console.log(tareas);
+//   tareas = [...tareas, tareaObj];
+//   // console.log(tareas);
 
-  //Una vez agregado vamos a crear el HTML
-  crearHTML();
+//   //Una vez agregado vamos a crear el HTML
+//   crearHTML();
 
-  //Reiniciar el formulario
-  formulario.reset();
-}
+//   //Reiniciar el formulario
+//   formulario.reset();
+// }
 
-//Mostrar mensaje de error
-function mostrarError(error){
-  const mensajeError = document.createElement('p');
-  mensajeError.textContent = error
-  mensajeError.classList.add('error');
+// //Mostrar mensaje de error
+// function mostrarError(error){
+//   const mensajeError = document.createElement('p');
+//   mensajeError.textContent = error
+//   mensajeError.classList.add('error');
 
-  //Insertarlo en el contenido
-  const contenido = document.querySelector('#contenido');
-  contenido.appendChild(mensajeError);
+//   //Insertarlo en el contenido
+//   const contenido = document.querySelector('#contenido');
+//   contenido.appendChild(mensajeError);
 
-  setTimeout(() =>{
-    mensajeError.remove();
-  },3000)
-}
+//   setTimeout(() =>{
+//     mensajeError.remove();
+//   },3000)
+// }
 
-//Muestra un listado de las tareas
-function crearHTML(){
+// //Muestra un listado de las tareas
+// function crearHTML(){
   
-  limpiarHTML();
+//   limpiarHTML();
   
-  if(tareas.length > 0){
-    tareas.forEach( tarea => {
-      //Agregar un boton de eliminar
-      const btnEliminar = document.createElement('a');
-      btnEliminar.classList.add('borrar-tarea');
-      btnEliminar.innerText = 'X';
+//   if(tareas.length > 0){
+//     tareas.forEach( tarea => {
+//       //Agregar un boton de eliminar
+//       const btnEliminar = document.createElement('a');
+//       btnEliminar.classList.add('borrar-tarea');
+//       btnEliminar.innerText = 'X';
 
-      //Añadir la funcion de eliminar
-      btnEliminar.onclick = () => {
-        borrarTarea(tarea.id);
-      }
+//       //Añadir la funcion de eliminar
+//       btnEliminar.onclick = () => {
+//         borrarTarea(tarea.id);
+//       }
       
-      //Crear HMTL
-      const li = document.createElement('li');
+//       //Crear HMTL
+//       const li = document.createElement('li');
 
-      //Añadir el texto
-      li.innerText = tarea.tarea;
+//       //Añadir el texto
+//       li.innerText = tarea.tarea;
 
-      //Asignar el boton de eliminar
-      li.appendChild(btnEliminar);
+//       //Asignar el boton de eliminar
+//       li.appendChild(btnEliminar);
 
-      //Insertarlo en el HTML
-      listaTareas.appendChild(li);
-    });
-  }
+//       //Insertarlo en el HTML
+//       listaTareas.appendChild(li);
+//     });
+//   }
 
-  sincronizarStorage();
-}
+//   sincronizarStorage();
+// }
 
-//Agregar las tareas actuales a localStorage
-function sincronizarStorage(){
-  localStorage.setItem('Tareas', JSON.stringify(tareas))
-}
+// //Agregar las tareas actuales a localStorage
+// function sincronizarStorage(){
+//   localStorage.setItem('Tareas', JSON.stringify(tareas))
+// }
 
-//Eliminar una tarea
-function borrarTarea(id){
-  console.log("Borrando...", id);
-  tareas = tareas.filter( tarea => tarea.id !== id)
-  // console.log(tareas);
-  crearHTML();
-}
-
-
-//Limpiar HTML
-function limpiarHTML(){
-  while(listaTareas.firstChild){
-    listaTareas.removeChild(listaTareas.firstChild);
-  }
-}
+// //Eliminar una tarea
+// function borrarTarea(id){
+//   console.log("Borrando...", id);
+//   tareas = tareas.filter( tarea => tarea.id !== id)
+//   // console.log(tareas);
+//   crearHTML();
+// }
 
 
+// //Limpiar HTML
+// function limpiarHTML(){
+//   while(listaTareas.firstChild){
+//     listaTareas.removeChild(listaTareas.firstChild);
+//   }
+// }
+
+//Proyecto 5. carrito de compras con local storage
+// const carrito = document.querySelector('#carrito1');
+// const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+// const vaciarCarrito = document.querySelector('#vaciar-carrito');
+// const listaCursos = document.querySelector('#lista-cursos');
+// let articulosCarrito = []; // Inicializar como un array vacío
+
+// cargarEventos();
+// function cargarEventos(){
+//  // Cuando agrega un curso presionando "Agregar carrito".
+//   listaCursos.addEventListener('click', agregarCurso);
+
+//  // Elimina cursos del carrito
+//   contenedorCarrito.addEventListener('click', eliminarCurso);
+
+// //Agregar el carrito en el local storage
+//   document.addEventListener('DOMContentLoaded', () => {
+//     articulosCarrito = JSON.parse(localStorage.getItem('Carrito')) || [];
+//     console.log(articulosCarrito);
+//     carritoHTML();
+//   });
+  
+//   //Vaciar el carrito
+//   vaciarCarrito.addEventListener('click', () =>{
+//     articulosCarrito = [];
+//     limpiarHTML();//Eliminamos el HTML
+//   })
+// }
+
+// //Funciones
+// function agregarCurso(e){
+//   e.preventDefault();
+//   if(e.target.classList.contains('agregar-carrito')){
+//     const cursoSeleccionado = e.target.parentElement;
+//     leerDatosCurso(cursoSeleccionado);
+//   }
+// }
+
+// //Elimina curso del carrito
+// function eliminarCurso(e) {
+//   if (e.target.classList.contains('borrar-curso')) {
+//     const cursoId = e.target.getAttribute("data-id");
+
+//     //Buscar el curso por su id en el carrito
+//     const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
+
+//     if (cursoEnCarrito) {
+//       if (cursoEnCarrito.cantidad > 1) {
+//        // Si hay más de uno, simplemente reducir la cantidad
+//         cursoEnCarrito.cantidad--;
+//       } else {
+//        // Si solo hay uno, eliminar el curso del carrito
+//         articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+//       }
+//       carritoHTML(); // Actualizar la visualización del carrito
+//     }
+//   }
+// }
+
+// //Click y extrae informacion del curso
+// function leerDatosCurso(curso){
+//    // Si el curso no existe, agrégalo al carrito
+//     const infoCurso = {
+//       imagen: curso.querySelector('img').src,
+//       titulo: curso.querySelector('h4').textContent,
+//       precio: curso.querySelector('.precio').textContent,
+//       id: curso.querySelector('a').getAttribute('data-id'),
+//       cantidad: 1
+//     };
+//   // Verificar si el curso ya está en el carrito
+//   const cursoExistente = articulosCarrito.some(curso => curso.id === infoCurso.id);
+//   if(cursoExistente){
+//    // Actualizamos la cantidad
+//     const cursos = articulosCarrito.map(curso => {
+//       if(curso.id === infoCurso.id){
+//         curso.cantidad++;
+//         return curso;//Retorna el objeto actualizado
+//       }else{
+//         return curso;
+// //Retorna los objetos que no son los duplicados.
+//       }
+//     });
+//     articulosCarrito = [...cursos];
+//   }else{
+//      // Agrega elementos al arreglo del carrito
+//     articulosCarrito = [...articulosCarrito, infoCurso];
+//   }
+//   carritoHTML();
+// }
+
+
+// //Muestra el carrito de compras en el HTML
+// function carritoHTML(){
+//   //Limpiar el HTML
+//   limpiarHTML();
+  
+//   //Recorre el carrito y general el HTML
+//   articulosCarrito.forEach(curso => {
+//     //Destructuracion de curso
+//     const {imagen, titulo, precio, cantidad, id} = curso
+//     const row = document.createElement('tr');
+//     row.innerHTML = `
+//       <td>
+//        <img src="${imagen}" / width=50>
+//       </td>
+//       <td>${titulo}</td>
+//       <td>${precio}</td>
+//       <td>${cantidad}</td>
+//       <td>
+//         <a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
+//       </td>
+//     `;
+    
+//     //Agregar el HTML del carrito en el tbody
+//     contenedorCarrito.appendChild(row);
+//   });
+
+//   sincronizarLocalStorage();
+// }
+
+// function sincronizarLocalStorage(){
+//   localStorage.setItem('Carrito', JSON.stringify(articulosCarrito));
+// }
+
+
+// //Elimina los cursos del tbody
+// function limpiarHTML(){
+//   //Forma lenta
+//   contenedorCarrito.innerHTML = '';
+  
+//   //Forma rapida
+//   while (contenedorCarrito.firstChild) {
+//     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+//   }
+// }
+//Fin del proyecto
 
 
 
