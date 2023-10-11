@@ -1364,45 +1364,69 @@
 
 //Fin de fechas
 
-//Prototypes o prototipos
-const cliente = {
-  nombre: "Fernando",
-  saldo: 900
+//Prototypes o prototipos 
+ const cliente = { 
+   nombre: "Fernando", 
+   saldo: 900 
+ } 
+  
+ console.log(cliente); 
+ console.log(typeof cliente); 
+  
+ function Cliente(nombre, saldo){ 
+   this.nombre = nombre; 
+   this.saldo = saldo; 
+ } 
+  
+ const cliente1 = new Cliente("Fernando", 15000); 
+ console.log(cliente1); 
+ console.log(typeof cliente1);
+ 
+ const cliente2 = new Cliente("Elena", 8500);
+ console.log(cliente2);
+  
+ function formatearcliente(cliente){ 
+   const {nombre, saldo} = cliente; 
+   return `${nombre} tiene un saldo de ${saldo} pesos`; 
+ } 
+  
+ console.log(formatearcliente(cliente1)); 
+  
+ function formatearEmpresa(empresa){ 
+   const {nombre, saldo, categoria} = empresa; 
+   return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`; 
+ } 
+3
+ function Empresa(nombre, saldo, categoria){ 
+   this.nombre = nombre; 
+   this.saldo = saldo; 
+   this.categoria = categoria; 
+ } 
+
+ const empresa1 = new Empresa("Fernando", 10900, "Soporte TI"); 
+  
+ console.log(formatearEmpresa(empresa1));
+
+Cliente.prototype.tipoCliente = function(){
+  //console.log('Desde el nuevo prototype');
+  let tipo;
+  if(this.saldo > 10000){
+    tipo = 'Gold';
+  }else if(this.saldo > 5000){
+    tipo = 'Platino';
+  }else{
+    tipo = 'Normal';
+  }
+  return tipo;
 }
 
-console.log(cliente);
-console.log(typeof cliente);
-
-function Cliente(nombre, saldo){
-  this.nombre = nombre;
-  this.saldo = saldo;
+Cliente.prototype.nombreClienteSaldo = function(){
+  return `Nombre: ${this.nombre}, Saldo:$${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`
 }
 
-const cliente1 = new Cliente("Fernando", 900);
-console.log(cliente1);
-console.log(typeof cliente1);
+console.log(cliente1.tipoCliente());
+console.log(cliente1.nombreClienteSaldo());
 
-function formatearcliente(cliente){
-  const {nombre, saldo} = cliente;
-  return `${nombre} tiene un saldo de ${saldo} pesos`;
-}
-
-console.log(formatearcliente(cliente1));
-
-function formatearEmpresa(empresa){
-  const {nombre, saldo, categoria} = empresa;
-  return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`;
-}
-
-function Empresa(nombre, saldo, categoria){
-  this.nombre = nombre;
-  this.saldo = saldo;
-  this.categoria = categoria;
-}
-
-const empresa1 = new Empresa("Fernando", 900, "Soporte TI");
-
-console.log(formatearEmpresa(empresa1));
 
 
 
