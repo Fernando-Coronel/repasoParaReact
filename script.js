@@ -1364,100 +1364,176 @@
 
 //Fin de fechas
 
-//Prototypes o prototipos 
- const cliente = { 
-   nombre: "Fernando", 
-   saldo: 900 
- } 
   
- console.log(cliente); 
- console.log(typeof cliente); 
+ //Prototypes o prototipos 
+// const cliente = { 
+   //nombre: "Fernando", 
+  // saldo: 900 
+// } 
   
- function Cliente(nombre, saldo){ 
-   this.nombre = nombre; 
-   this.saldo = saldo; 
- } 
+// console.log(cliente); 
+// console.log(typeof cliente); 
   
- const cliente1 = new Cliente("Fernando", 15000); 
- console.log(cliente1); 
- console.log(typeof cliente1);
+// function Cliente(nombre, saldo){ 
+   //this.nombre = nombre; 
+   //this.saldo = saldo; 
+// } 
+  
+// const cliente1 = new Cliente("Fernando", 11000); 
+// console.log(cliente1); 
+// console.log(typeof cliente1);
  
- const cliente2 = new Cliente("Elena", 8500);
- console.log(cliente2);
+// const cliente2 = new Cliente("Elena", 8500);
+ //console.log(cliente2);
   
- function formatearcliente(cliente){ 
-   const {nombre, saldo} = cliente; 
-   return `${nombre} tiene un saldo de ${saldo} pesos`; 
- } 
+// function formatearcliente(cliente){ 
+  // const {nombre, saldo} = cliente; 
+   //return `${nombre} tiene un saldo de ${saldo} pesos`; 
+// } 
   
- console.log(formatearcliente(cliente1)); 
+// console.log(formatearcliente(cliente1)); 
   
- function formatearEmpresa(empresa){ 
-   const {nombre, saldo, categoria} = empresa; 
-   return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`; 
- } 
-3
- function Empresa(nombre, saldo, categoria){ 
-   this.nombre = nombre; 
-   this.saldo = saldo; 
-   this.categoria = categoria; 
- } 
+// function formatearEmpresa(empresa){ 
+  // const {nombre, saldo, categoria} = empresa; 
+ //  return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`; 
+// } 
 
- const empresa1 = new Empresa("Fernando", 10900, "Soporte TI"); 
-  
- console.log(formatearEmpresa(empresa1));
+// function Empresa(nombre, saldo, categoria){ 
+   //this.nombre = nombre; 
+   //this.saldo = saldo; 
+   //this.categoria = categoria; 
+// } 
 
-Cliente.prototype.tipoCliente = function(){
+ //const empresa1 = new Empresa("Fernando", 10900, "Soporte TI"); 
+  
+ //console.log(formatearEmpresa(empresa1));
+
+//Cliente.prototype.tipoCliente = function(){
   //console.log('Desde el nuevo prototype');
-  let tipo;
-  if(this.saldo > 10000){
-    tipo = 'Gold';
-  }else if(this.saldo > 5000){
-    tipo = 'Platino';
-  }else{
-    tipo = 'Normal';
+//  let tipo;
+//  if(this.saldo > 10000){
+//    tipo = 'Gold';
+//  }else if(this.saldo > 5000){
+//    tipo = 'Platino';
+//  }else{
+   // tipo = 'Normal';
+//  }
+ // return tipo;
+//}
+
+//Cliente.prototype.nombreClienteSaldo = function(){
+  //return `Nombre: ${this.nombre}, Saldo:$${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`
+//}
+
+//Cliente.prototype.retirarSaldo = function(retiro){
+  //return this.saldo -= retiro;
+//}
+
+//console.log(cliente1.tipoCliente());
+//console.log(cliente1.nombreClienteSaldo());
+//cliente1.retirarSaldo(1000);
+//console.log(cliente1.nombreClienteSaldo());
+
+//Herencia de prototipos
+//function Persona(nombre, saldo, telefono){
+  //Cliente.call(this, nombre, saldo);
+  //this.telefono = telefono;
+//}
+
+//Persona.prototype = Object.create(Cliente.prototype);
+//Persona.prototype.constructor = Cliente;
+
+//Persona.prototype.mostrarTelefono = function(){
+  //return `El telefono de esta persona es ${this.telefono}.`
+//}
+
+//const persona1 = new Persona('Fernando', 9500, 5566778899);
+//console.log(persona1);
+//console.log (persona1.mostrarTelefono());
+
+//Fin de los prototipos
+
+//Proyecto 6. Cotizador con prototypes
+//constructor
+function Seguro(marca, year, tipo){
+  this.marca = marca;
+  this.year = year;
+  this.tipo = tipo;
+}
+
+function UI(){
+
+}
+
+//Llena las opciones de los años
+UI.prototype.llenarOpciones = () => {
+  const max = new Date().getFullYear();
+  const min = max - 23;
+  const selectYear = document.querySelector('#year');
+
+  for(let i = max; i > min; i--){
+    let option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    selectYear.appendChild(option);
   }
-  return tipo;
 }
 
-Cliente.prototype.nombreClienteSaldo = function(){
-  return `Nombre: ${this.nombre}, Saldo:$${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`
+UI.prototype.mostrarMensaje = (mensaje,tipo) => {
+  const div = document.createElement('div');
+
+  if(tipo === 'error'){
+    div.classList.add('error');
+  }else{
+    div.classList.add('correcto');
+  }
+
+  div.classList.add('mensaje', 'mt-10');
+  div.textContent = mensaje;
+
+
+  //Insertar en el html
+  const formulario = document.querySelector('#cotizar-seguro');
+  formulario.insertBefore(div, document.querySelector('#resultado'));
+
+  setTimeout(()=>{
+    div.remove();
+  },3000)
 }
 
-console.log(cliente1.tipoCliente());
-console.log(cliente1.nombreClienteSaldo());
+const ui = new UI();
+console.log(ui);
 
+document.addEventListener('DOMContentLoaded', () => {
+  ui.llenarOpciones(); //Llena el select con los años...
+})
 
+eventListeners();
+function eventListeners(){
+  const formulario = document.querySelector('#cotizar-seguro');
+  formulario.addEventListener('submit', cotizarSeguro);
+}
 
+function cotizarSeguro(e){
+  e.preventDefault();
 
+  //Leer la marca seleccionada
+  const marca = document.querySelector('#marca').value;
 
+  //Leer el año seleccionado
+  const year = document.querySelector('#year').value;
 
+  //Leer el tipo seleccionado
+  const tipo = document.querySelector('input[name="tipo"]:checked').value;
+  console.log(tipo);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  if(marca === '' || year === '' || tipo === ''){
+   // console.log('No paso la prueba');
+   ui.mostrarMensaje('Todos los campos son obligatorios', 'error');
+   return;
+  }
+  ui.mostrarMensaje('Cotizando...', 'exito');
+}
 
 
 
