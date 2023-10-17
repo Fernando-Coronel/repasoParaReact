@@ -53,7 +53,6 @@
 //   `
 // })
 
-
 // $carrito.innerHTML = html1;
 
 // class Persona{
@@ -72,7 +71,6 @@
 //     this._nombre = nombre;
 //   }
 
-  
 // }
 
 // let numeroTabla = parseInt(prompt("Ingrese la tabla de multiplicar: "));
@@ -80,7 +78,6 @@
 // for(let i = 1; i <= 10; i++){
 //   console.log(`${numeroTabla} X ${i} = ${numeroTabla * i}`)
 //}
-
 
 //Codigo echo desde el telefono
 
@@ -103,7 +100,7 @@
 //   if(b === undefined){
 //     b = 0;
 //   }
-  
+
 //   return a + b;
 // }
 
@@ -117,7 +114,6 @@
 // let sumar3 = suma3(4);
 // console.log(sumar3);
 
-
 // console.log('Objetos');
 
 // const user = {
@@ -125,8 +121,8 @@
 //   lastname: 'Coronel',
 //   age: 31,
 //   address: {
-//     country: 'México', 
-//     city: 'Ciudad de México', 
+//     country: 'México',
+//     city: 'Ciudad de México',
 //     street: 'Santa Martha',
 //   },
 //   pasatiempos:['Programar', 'Ver series', 'Estar con mi familia'],
@@ -154,7 +150,6 @@
 // console.log(user.sendMail);
 // console.log(user.sendMail());
 
-
 // console.log();
 
 // let name2 = 'Fercho';
@@ -181,23 +176,19 @@
 // console.log(newProduct);
 // console.log(newProduct);
 
-
 // let fecha = new Date();
 // let dia = fecha.getDate();
 
 // const dias = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
 
-
 // let diasSemana = dias[fecha.getDay()];
 // console.log(diasSemana);
-
 
 // console.log('DOM');
 
 // let titulo1 = document.createElement('h1');
 // titulo1.innerText = 'Agregando h1 desde el DOM';
 // document.body.append(titulo1);
-
 
 // let boton1 = document.createElement('button');
 // boton1.innerText = 'boton desde el DOM'
@@ -237,7 +228,6 @@
 
 // console.log(impObjectDestruc2(user2));
 // document.body.innerHTML= impObjectDestruc(user2);
-
 
 // console.log('Funciones anonimas');
 // console.log(function(){
@@ -502,12 +492,12 @@
 //  constructor(id, nombre){
 //    this.id = id;
 //    this.nombre = nombre;
-//  } 
+//  }
 
 //   reproducir(){
 //     return `Reproduciendo pelicula ${this.nombre}`
 //   }
-  
+
 // }
 
 // const pelicula1 = new Pelicula(1,"Harry Potter");
@@ -565,7 +555,6 @@
 // nuevoArreglo1.pop();
 // console.table(nuevoArreglo1);
 
-
 //Proyecto 1. carrito de compras
 //const carrito = document.querySelector('#carrito1');
 //const contenedorCarrito = document.querySelector('#lista-carrito tbody');
@@ -575,122 +564,119 @@
 
 //cargarEventos();
 //function cargarEventos(){
-  //Cuando agrega un curso presionando "Agregar carrito".
-  //listaCursos.addEventListener('click', agregarCurso);
+//Cuando agrega un curso presionando "Agregar carrito".
+//listaCursos.addEventListener('click', agregarCurso);
 
-  //Elimina cursos del carrito
-  //contenedorCarrito.addEventListener('click', eliminarCurso);
+//Elimina cursos del carrito
+//contenedorCarrito.addEventListener('click', eliminarCurso);
 
-  //Vaciar el carrito
-  //vaciarCarrito.addEventListener('click', () =>{
-    //articulosCarrito = [];
-    //limpiarHTML();//Eliminamos el HTML
-  //})
+//Vaciar el carrito
+//vaciarCarrito.addEventListener('click', () =>{
+//articulosCarrito = [];
+//limpiarHTML();//Eliminamos el HTML
+//})
 //}
 
 //Funciones
 //function agregarCurso(e){
-  //e.preventDefault();
-  //if(e.target.classList.contains('agregar-carrito')){
-    //const cursoSeleccionado = e.target.parentElement;
-    //leerDatosCurso(cursoSeleccionado);
-  //}
+//e.preventDefault();
+//if(e.target.classList.contains('agregar-carrito')){
+//const cursoSeleccionado = e.target.parentElement;
+//leerDatosCurso(cursoSeleccionado);
+//}
 //}
 
 //Elimina curso del carrito
 //function eliminarCurso(e) {
-  //if (e.target.classList.contains('borrar-curso')) {
-    //const cursoId = e.target.getAttribute("data-id");
+//if (e.target.classList.contains('borrar-curso')) {
+//const cursoId = e.target.getAttribute("data-id");
 
-    // Buscar el curso por su id en el carrito
-    //const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
+// Buscar el curso por su id en el carrito
+//const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
 
-    //if (cursoEnCarrito) {
-      //if (cursoEnCarrito.cantidad > 1) {
-        // Si hay más de uno, simplemente reducir la cantidad
-        //cursoEnCarrito.cantidad--;
-      //} else {
-        // Si solo hay uno, eliminar el curso del carrito
-        //articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
-      //}
-      //carritoHTML(); // Actualizar la visualización del carrito
-    //}
-  //}
+//if (cursoEnCarrito) {
+//if (cursoEnCarrito.cantidad > 1) {
+// Si hay más de uno, simplemente reducir la cantidad
+//cursoEnCarrito.cantidad--;
+//} else {
+// Si solo hay uno, eliminar el curso del carrito
+//articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+//}
+//carritoHTML(); // Actualizar la visualización del carrito
+//}
+//}
 //}
 
 //Click y extrae informacion del curso
 //function leerDatosCurso(curso){
-    // Si el curso no existe, agrégalo al carrito
-    //const infoCurso = {
-      //imagen: curso.querySelector('img').src,
-      //titulo: curso.querySelector('h4').textContent,
-      //precio: curso.querySelector('.precio').textContent,
-      //id: curso.querySelector('a').getAttribute('data-id'),
-      //cantidad: 1
-    //};
-   // Verificar si el curso ya está en el carrito
-  //const cursoExistente = articulosCarrito.some(curso => curso.id === infoCurso.id);
-  //if(cursoExistente){
-    //Actualizamos la cantidad
-    //const cursos = articulosCarrito.map(curso => {
-      //if(curso.id === infoCurso.id){
-        //curso.cantidad++;
-        //return curso;//Retorna el objeto actualizado
-      //}else{
-        //return curso;
+// Si el curso no existe, agrégalo al carrito
+//const infoCurso = {
+//imagen: curso.querySelector('img').src,
+//titulo: curso.querySelector('h4').textContent,
+//precio: curso.querySelector('.precio').textContent,
+//id: curso.querySelector('a').getAttribute('data-id'),
+//cantidad: 1
+//};
+// Verificar si el curso ya está en el carrito
+//const cursoExistente = articulosCarrito.some(curso => curso.id === infoCurso.id);
+//if(cursoExistente){
+//Actualizamos la cantidad
+//const cursos = articulosCarrito.map(curso => {
+//if(curso.id === infoCurso.id){
+//curso.cantidad++;
+//return curso;//Retorna el objeto actualizado
+//}else{
+//return curso;
 //Retorna los objetos que no son los duplicados.
-      //}
-    //});
-    //articulosCarrito = [...cursos];
-  //}else{
-      //Agrega elementos al arreglo del carrito
-    //articulosCarrito = [...articulosCarrito, infoCurso];
-  //}
-  //carritoHTML();
 //}
-
+//});
+//articulosCarrito = [...cursos];
+//}else{
+//Agrega elementos al arreglo del carrito
+//articulosCarrito = [...articulosCarrito, infoCurso];
+//}
+//carritoHTML();
+//}
 
 //Muestra el carrito de compras en el HTML
 //function carritoHTML(){
-  //Limpiar el HTML
-  //limpiarHTML();
-  
-  //Recorre el carrito y general el HTML
-  //articulosCarrito.forEach(curso => {
-    //Destructuracion de curso
-    //const {imagen, titulo, precio, cantidad, id} = curso
-    //const row = document.createElement('tr');
-    //row.innerHTML = `
-      //<td>
-       //<img src="${imagen}" / width=50>
-      //</td>
-      //<td>${titulo}</td>
-      //<td>${precio}</td>
-      //<td>${cantidad}</td>
-      //<td>
-        //<a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
-      //</td>
-    //`;
-    
-    //Agregar el HTML del carrito en el tbody
-    //contenedorCarrito.appendChild(row);
-  //})
-//}
+//Limpiar el HTML
+//limpiarHTML();
 
+//Recorre el carrito y general el HTML
+//articulosCarrito.forEach(curso => {
+//Destructuracion de curso
+//const {imagen, titulo, precio, cantidad, id} = curso
+//const row = document.createElement('tr');
+//row.innerHTML = `
+//<td>
+//<img src="${imagen}" / width=50>
+//</td>
+//<td>${titulo}</td>
+//<td>${precio}</td>
+//<td>${cantidad}</td>
+//<td>
+//<a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
+//</td>
+//`;
+
+//Agregar el HTML del carrito en el tbody
+//contenedorCarrito.appendChild(row);
+//})
+//}
 
 //Elimina los cursos del tbody
 //function limpiarHTML(){
-  //Forma lenta
-  //contenedorCarrito.innerHTML = '';
-  
-  //Forma rapida
-  //while (contenedorCarrito.firstChild) {
-    //contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-  //}
+//Forma lenta
+//contenedorCarrito.innerHTML = '';
+
+//Forma rapida
+//while (contenedorCarrito.firstChild) {
+//contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+//}
 //}
 
 //Fin del proyecto
-
 
 //Proyecto 2. Simulador de envios de emails
 // const email = document.querySelector('#email');
@@ -730,7 +716,7 @@
 //       //Elimina los errores...
 //   const error = document.querySelector('p.error');
 //   if(error){
-//      error.remove(); 
+//      error.remove();
 //   }
 //      e.target.classList.remove('border-2', 'border-rose-500')
 //     e.target.classList.add('border-2', 'border-green-500');
@@ -739,7 +725,7 @@
 //     e.target.classList.add('border-2', 'border-rose-500');
 //     mostrarError('Todos los campos son obligatorios');
 //   }
-  
+
 //   if(e.target.type === 'email'){
 //     if(expReg.test(e.target.value)){
 //       //console.log('email valido');
@@ -757,7 +743,7 @@
 //       mostrarError('Email no valido');
 //     }
 //   }
-  
+
 //   if(expReg.test(email.value) && asunto.value !== '' && mensaje.value !== ''){
 //     //console.log('Pasaste la validacion');
 //     btnEnviar.disabled = false;
@@ -793,7 +779,7 @@
 //     parrafo.classList.add('text-center', 'p-2', 'mt-8', 'bg-green-600', 'text-white', 'font-bold', 'uppercase')
 
 //     //Inserta el parrafo antes del spinner
-//     formulario.appendChild(parrafo, spinner); 
+//     formulario.appendChild(parrafo, spinner);
 
 //     setTimeout(() => {
 //       parrafo.remove();//Elimina el mensaje de exito
@@ -802,7 +788,7 @@
 //       asunto.classList.remove('border-2', 'border-green-500');
 //       mensaje.classList.remove('border-2', 'border-green-500');
 //     },4000);
-    
+
 //   }, 3000);
 // }
 
@@ -815,127 +801,124 @@
 
 //Fin de proyecto
 
+//Proyecto 3. Filtrar y Buscar en base a diferentes Campos.
+//Variables
+// const marca = document.querySelector("#marca")
+//  const year = document.querySelector("#year")
+//  const minimo = document.querySelector("#minimo")
+//  const maximo = document.querySelector("#maximo")
+//  const puertas = document.querySelector("#puertas")
+//  const transmision = document.querySelector("#transmision")
+//  const color = document.querySelector("#color")
+//  const resultado = document.querySelector("#resultado");
 
- //Proyecto 3. Filtrar y Buscar en base a diferentes Campos.
-  //Variables
-// const marca = document.querySelector("#marca") 
-//  const year = document.querySelector("#year") 
-//  const minimo = document.querySelector("#minimo") 
-//  const maximo = document.querySelector("#maximo") 
-//  const puertas = document.querySelector("#puertas") 
-//  const transmision = document.querySelector("#transmision") 
-//  const color = document.querySelector("#color") 
-//  const resultado = document.querySelector("#resultado"); 
-  
-//  const max = new Date().getFullYear(); 
-//  const min = max - 13 ; 
-  
-//  const datosBusqueda = { 
-//    marca: '', 
-//    year: '', 
-//    minimo: '', 
-//    maximo: '', 
-//    puertas: '', 
-//    transmision: '', 
-//    color: '' 
-//  } 
-  
-  
-//  //Eventos 
-//  document.addEventListener('DOMContentLoaded', () => { 
-//    //Muestra los automoviles al cargar 
-//    mostrarAutos(autos); 
-  
-//    //Llenar las opciones de años 
-//    llenarSelect(); 
-  
-//  }); 
-  
-//  marca.addEventListener('change', e => { 
-//    datosBusqueda.marca = e.target.value; 
-//    console.log(datosBusqueda); 
-  
-//    filtrarAuto(); 
-//  }); 
-//  year.addEventListener('change', e => { 
-//    datosBusqueda.year = parseInt(e.target.value); 
-//    console.log(datosBusqueda); 
-//    filtrarAuto(); 
-//  }); 
-//  minimo.addEventListener('change', e => { 
-//    datosBusqueda.minimo = e.target.value; 
+//  const max = new Date().getFullYear();
+//  const min = max - 13 ;
+
+//  const datosBusqueda = {
+//    marca: '',
+//    year: '',
+//    minimo: '',
+//    maximo: '',
+//    puertas: '',
+//    transmision: '',
+//    color: ''
+//  }
+
+//  //Eventos
+//  document.addEventListener('DOMContentLoaded', () => {
+//    //Muestra los automoviles al cargar
+//    mostrarAutos(autos);
+
+//    //Llenar las opciones de años
+//    llenarSelect();
+
+//  });
+
+//  marca.addEventListener('change', e => {
+//    datosBusqueda.marca = e.target.value;
+//    console.log(datosBusqueda);
+
+//    filtrarAuto();
+//  });
+//  year.addEventListener('change', e => {
+//    datosBusqueda.year = parseInt(e.target.value);
 //    console.log(datosBusqueda);
 //    filtrarAuto();
-   
-//  }); 
-//  maximo.addEventListener('change', e => { 
-//    datosBusqueda.maximo = e.target.value; 
-//    console.log(datosBusqueda); 
+//  });
+//  minimo.addEventListener('change', e => {
+//    datosBusqueda.minimo = e.target.value;
+//    console.log(datosBusqueda);
 //    filtrarAuto();
-   
-//  }); 
-//  puertas.addEventListener('change', e => { 
-//    datosBusqueda.puertas = parseInt(e.target.value); 
-//    console.log(datosBusqueda); 
+
+//  });
+//  maximo.addEventListener('change', e => {
+//    datosBusqueda.maximo = e.target.value;
+//    console.log(datosBusqueda);
 //    filtrarAuto();
-   
-//  }); 
-//  transmision.addEventListener('change', e => { 
-//    datosBusqueda.transmision = e.target.value; 
-//    console.log(datosBusqueda); 
+
+//  });
+//  puertas.addEventListener('change', e => {
+//    datosBusqueda.puertas = parseInt(e.target.value);
+//    console.log(datosBusqueda);
 //    filtrarAuto();
-//  }); 
-//  color.addEventListener('change', e => { 
-//    datosBusqueda.color = e.target.value; 
-//    console.log(datosBusqueda); 
+
+//  });
+//  transmision.addEventListener('change', e => {
+//    datosBusqueda.transmision = e.target.value;
+//    console.log(datosBusqueda);
 //    filtrarAuto();
-//  }); 
-  
-  
-//  //Funciones 
-//  function mostrarAutos(autos){ 
-   
+//  });
+//  color.addEventListener('change', e => {
+//    datosBusqueda.color = e.target.value;
+//    console.log(datosBusqueda);
+//    filtrarAuto();
+//  });
+
+//  //Funciones
+//  function mostrarAutos(autos){
+
 //    limpiarHTML();
-  
-//    autos.forEach( auto => { 
-//    const {marca, modelo, year, precio, puertas, color, transmision} = auto; 
-//    const autosHTML = document.createElement('p'); 
-  
-//    autosHTML.textContent = ` 
-//      ${marca} ${modelo} - ${year} - Precio $${precio} - ${puertas} Puertas - Transmision: ${transmision} - Color ${color}  
-//    `   
-//    resultado.appendChild(autosHTML);   
-//    }); 
-  
-//  } 
- 
+
+//    autos.forEach( auto => {
+//    const {marca, modelo, year, precio, puertas, color, transmision} = auto;
+//    const autosHTML = document.createElement('p');
+
+//    autosHTML.textContent = `
+//      ${marca} ${modelo} - ${year} - Precio $${precio} - ${puertas} Puertas - Transmision: ${transmision} - Color ${color}
+//    `
+//    resultado.appendChild(autosHTML);
+//    });
+
+//  }
+
 //  function limpiarHTML(){
 //    while(resultado.firstChild){
 //      resultado.removeChild(resultado.firstElementChild);
 //    }
 //  }
-  
-//  function llenarSelect(){ 
-  
-//    for(let i = max; i >= min; i--){ 
-//      const opcion = document.createElement('option'); 
-//      opcion.value = i; 
-//      opcion.textContent = i; 
-//      year.appendChild(opcion);//Agregar las opciones del año al select 
-//    } 
-//  } 
-  
-//  function filtrarAuto(){ 
-//    const resultado = autos.filter( filtrarMarca ).filter( filtrarYear).filter( filtrarMinimo).filter( filtrarMaximo).filter( filtrarPuertas).filter( filtrarTransmision).filter( filtrarColor); 
-//    console.log(resultado); 
-   
+
+//  function llenarSelect(){
+
+//    for(let i = max; i >= min; i--){
+//      const opcion = document.createElement('option');
+//      opcion.value = i;
+//      opcion.textContent = i;
+//      year.appendChild(opcion);//Agregar las opciones del año al select
+//    }
+//  }
+
+//  function filtrarAuto(){
+//    const resultado = autos.filter( filtrarMarca ).filter( filtrarYear).filter( filtrarMinimo).filter( filtrarMaximo).filter( filtrarPuertas).filter( filtrarTransmision).filter( filtrarColor);
+//    console.log(resultado);
+
 //    if(resultado.length){
-//      mostrarAutos(resultado); 
+//      mostrarAutos(resultado);
 //    }else{
 //      noResultado();
 //    }
-//  } 
- 
+//  }
+
 //  function noResultado(){
 //    limpiarHTML();
 //    const noResultado = document.createElement('div');
@@ -943,24 +926,24 @@
 //    noResultado.textContent = 'No hay resultados, intenta con otros terminos de búsqueda';
 //    resultado.appendChild(noResultado);
 //  }
-  
-//  function filtrarMarca(auto){ 
-//    const {marca} = datosBusqueda; 
-//    if(marca){ 
-//      return auto.marca === marca; 
-//    } 
-  
-//    return auto; 
-//  } 
-  
-//  function filtrarYear(auto){ 
-//    const {year} = datosBusqueda; 
-//    if(year){ 
-//      return auto.year === year; 
-//    } 
-//    return auto; 
+
+//  function filtrarMarca(auto){
+//    const {marca} = datosBusqueda;
+//    if(marca){
+//      return auto.marca === marca;
+//    }
+
+//    return auto;
 //  }
- 
+
+//  function filtrarYear(auto){
+//    const {year} = datosBusqueda;
+//    if(year){
+//      return auto.year === year;
+//    }
+//    return auto;
+//  }
+
 //  function filtrarMinimo(auto){
 //    const {minimo} = datosBusqueda;
 //    if(minimo){
@@ -968,7 +951,7 @@
 //    }
 //    return auto;
 //  }
- 
+
 //  function filtrarMaximo(auto){
 //    const {maximo} = datosBusqueda;
 //    if(maximo){
@@ -976,7 +959,7 @@
 //    }
 //    return auto;
 //  }
- 
+
 //  function filtrarPuertas(auto){
 //    const {puertas} = datosBusqueda;
 //    if(puertas){
@@ -984,7 +967,7 @@
 //    }
 //    return auto
 //  }
- 
+
 //  function filtrarTransmision(auto){
 //    const {transmision} = datosBusqueda;
 //    if(transmision){
@@ -992,19 +975,19 @@
 //    }
 //    return auto;
 //  }
- 
+
 //  function filtrarColor(auto){
 //    const {color} = datosBusqueda;
 //    if(color){
 //      return auto.color === color;
 //    }
 //    return auto;
-// } 
+// }
 
 // Fin del proyecto
 
-//Local storage 
-//Ingresar datos en el local storage 
+//Local storage
+//Ingresar datos en el local storage
 
 // localStorage.setItem("Nombre", "Fernando");
 
@@ -1024,8 +1007,7 @@
 // const carrosString = JSON.stringify(['Audi', 'BMW', 'Chevrolet', 'Ford']);
 // localStorage.setItem('Carros', carrosString);
 
-
-// //Obtener datos del local Storage 
+// //Obtener datos del local Storage
 
 // const getNombre = localStorage.getItem("Nombre");
 // console.log(getNombre);
@@ -1048,10 +1030,10 @@
 // const convertirCarros = JSON.parse(getCarros);
 // console.log(convertirCarros);
 
-// //Eliminar datos de local storage 
+// //Eliminar datos de local storage
 // localStorage.removeItem("Nombre");
 
-// //Actualizar un registro 
+// //Actualizar un registro
 
 // const nombresJSON = JSON.parse(localStorage.getItem("Nombres"));
 // console.log(nombresJSON);
@@ -1069,7 +1051,7 @@
 // console.log(carrosJSON);
 // localStorage.setItem('Carros', JSON.stringify(carrosJSON));
 
-// //Elimina todo el local storage 
+// //Elimina todo el local storage
 // //localStorage.clear();
 
 // Fin local storage
@@ -1093,7 +1075,7 @@
 //     console.log(tareas);
 //     crearHTML();
 //   });
-  
+
 // }
 
 // //Funciones
@@ -1147,9 +1129,9 @@
 
 // //Muestra un listado de las tareas
 // function crearHTML(){
-  
+
 //   limpiarHTML();
-  
+
 //   if(tareas.length > 0){
 //     tareas.forEach( tarea => {
 //       //Agregar un boton de eliminar
@@ -1161,7 +1143,7 @@
 //       btnEliminar.onclick = () => {
 //         borrarTarea(tarea.id);
 //       }
-      
+
 //       //Crear HMTL
 //       const li = document.createElement('li');
 
@@ -1192,7 +1174,6 @@
 //   crearHTML();
 // }
 
-
 // //Limpiar HTML
 // function limpiarHTML(){
 //   while(listaTareas.firstChild){
@@ -1221,7 +1202,7 @@
 //     console.log(articulosCarrito);
 //     carritoHTML();
 //   });
-  
+
 //   //Vaciar el carrito
 //   vaciarCarrito.addEventListener('click', () =>{
 //     articulosCarrito = [];
@@ -1294,7 +1275,7 @@
 // function carritoHTML(){
 //   //Limpiar el HTML
 //   limpiarHTML();
-  
+
 //   //Recorre el carrito y general el HTML
 //   articulosCarrito.forEach(curso => {
 //     //Destructuracion de curso
@@ -1311,7 +1292,7 @@
 //         <a href="#" data-id="${id}" class="btn btn-danger borrar-curso"> X </a>
 //       </td>
 //     `;
-    
+
 //     //Agregar el HTML del carrito en el tbody
 //     contenedorCarrito.appendChild(row);
 //   });
@@ -1327,7 +1308,7 @@
 // function limpiarHTML(){
 //   //Forma lenta
 //   contenedorCarrito.innerHTML = '';
-  
+
 //   //Forma rapida
 //   while (contenedorCarrito.firstChild) {
 //     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
@@ -1364,69 +1345,68 @@
 
 //Fin de fechas
 
-  
- //Prototypes o prototipos 
-// const cliente = { 
-   //nombre: "Fernando", 
-  // saldo: 900 
-// } 
-  
-// console.log(cliente); 
-// console.log(typeof cliente); 
-  
-// function Cliente(nombre, saldo){ 
-   //this.nombre = nombre; 
-   //this.saldo = saldo; 
-// } 
-  
-// const cliente1 = new Cliente("Fernando", 11000); 
-// console.log(cliente1); 
+//Prototypes o prototipos
+// const cliente = {
+//nombre: "Fernando",
+// saldo: 900
+// }
+
+// console.log(cliente);
+// console.log(typeof cliente);
+
+// function Cliente(nombre, saldo){
+//this.nombre = nombre;
+//this.saldo = saldo;
+// }
+
+// const cliente1 = new Cliente("Fernando", 11000);
+// console.log(cliente1);
 // console.log(typeof cliente1);
- 
+
 // const cliente2 = new Cliente("Elena", 8500);
- //console.log(cliente2);
-  
-// function formatearcliente(cliente){ 
-  // const {nombre, saldo} = cliente; 
-   //return `${nombre} tiene un saldo de ${saldo} pesos`; 
-// } 
-  
-// console.log(formatearcliente(cliente1)); 
-  
-// function formatearEmpresa(empresa){ 
-  // const {nombre, saldo, categoria} = empresa; 
- //  return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`; 
-// } 
+//console.log(cliente2);
 
-// function Empresa(nombre, saldo, categoria){ 
-   //this.nombre = nombre; 
-   //this.saldo = saldo; 
-   //this.categoria = categoria; 
-// } 
+// function formatearcliente(cliente){
+// const {nombre, saldo} = cliente;
+//return `${nombre} tiene un saldo de ${saldo} pesos`;
+// }
 
- //const empresa1 = new Empresa("Fernando", 10900, "Soporte TI"); 
-  
- //console.log(formatearEmpresa(empresa1));
+// console.log(formatearcliente(cliente1));
+
+// function formatearEmpresa(empresa){
+// const {nombre, saldo, categoria} = empresa;
+//  return `${nombre} tiene un saldo de ${saldo} pesos con categoria ${categoria}`;
+// }
+
+// function Empresa(nombre, saldo, categoria){
+//this.nombre = nombre;
+//this.saldo = saldo;
+//this.categoria = categoria;
+// }
+
+//const empresa1 = new Empresa("Fernando", 10900, "Soporte TI");
+
+//console.log(formatearEmpresa(empresa1));
 
 //Cliente.prototype.tipoCliente = function(){
-  //console.log('Desde el nuevo prototype');
+//console.log('Desde el nuevo prototype');
 //  let tipo;
 //  if(this.saldo > 10000){
 //    tipo = 'Gold';
 //  }else if(this.saldo > 5000){
 //    tipo = 'Platino';
 //  }else{
-   // tipo = 'Normal';
+// tipo = 'Normal';
 //  }
- // return tipo;
+// return tipo;
 //}
 
 //Cliente.prototype.nombreClienteSaldo = function(){
-  //return `Nombre: ${this.nombre}, Saldo:$${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`
+//return `Nombre: ${this.nombre}, Saldo:$${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`
 //}
 
 //Cliente.prototype.retirarSaldo = function(retiro){
-  //return this.saldo -= retiro;
+//return this.saldo -= retiro;
 //}
 
 //console.log(cliente1.tipoCliente());
@@ -1436,15 +1416,15 @@
 
 //Herencia de prototipos
 //function Persona(nombre, saldo, telefono){
-  //Cliente.call(this, nombre, saldo);
-  //this.telefono = telefono;
+//Cliente.call(this, nombre, saldo);
+//this.telefono = telefono;
 //}
 
 //Persona.prototype = Object.create(Cliente.prototype);
 //Persona.prototype.constructor = Cliente;
 
 //Persona.prototype.mostrarTelefono = function(){
-  //return `El telefono de esta persona es ${this.telefono}.`
+//return `El telefono de esta persona es ${this.telefono}.`
 //}
 
 //const persona1 = new Persona('Fernando', 9500, 5566778899);
@@ -1565,7 +1545,7 @@
 //     default:
 //       break;
 //   }
-  
+
 //   const div = document.createElement('div');
 //   div.classList.add('mt-10');
 
@@ -1625,7 +1605,7 @@
 //   const resultados = document.querySelector('#resultado div');
 //   if(resultados != null){
 //     resultados.remove();
-//   } 
+//   }
 
 //   //Instanciar el seguro
 //   const seguro = new Seguro(marca, year, tipo);
@@ -1635,7 +1615,7 @@
 
 //   //Utilizar el prototype que va a cotizar
 //   ui.mostrarResultado(total, seguro);
-  
+
 // }
 
 //Fin de proyecto
@@ -1643,49 +1623,87 @@
 //Programación orientada a objetos
 
 //Primera forma de declarar e instanciar una clase
-class Cliente1 {
-  constructor(nombre, saldo){
-    this.nombre = nombre;
-    this.saldo = saldo;
-  }
-  //Forma de crear metodos
-  mostrarInformacion(){
-    return `Cliente: ${this.nombre}, su saldo es de $${this.saldo}.`
-  }
-}
+// class Cliente1 {
+//   constructor(nombre, saldo) {
+//     this.nombre = nombre;
+//     this.saldo = saldo;
+//   }
+//   //Forma de crear metodos
+//   mostrarInformacion() {
+//     return `Cliente: ${this.nombre}, su saldo es de $${this.saldo}.`;
+//   }
+// }
 
-const fernando = new Cliente1('Fernando', 400); 
-console.log(fernando);
-console.log(fernando.mostrarInformacion());
+// const fernando = new Cliente1("Fernando", 400);
+// console.log(fernando);
+// console.log(fernando.mostrarInformacion());
 
-//Segunda forma de declarar e instanciar una clase
-const Cliente2 = class{
-  constructor(nombre, saldo){
-    this.nombre =  nombre;
-    this.saldo = saldo;
-  }
-  //Forma de crear metodos
-  mostrarInformacion(){
-    return `Cliente: ${this.nombre}, su saldo es de $${this.saldo}.`
-  }
-}
+// //Segunda forma de declarar e instanciar una clase
+// const Cliente2 = class {
+//   constructor(nombre, saldo) {
+//     this.nombre = nombre;
+//     this.saldo = saldo;
+//   }
+//   //Forma de crear metodos
+//   mostrarInformacion() {
+//     return `Cliente: ${this.nombre}, su saldo es de $${this.saldo}.`;
+//   }
+// };
 
-const fernando2 = new Cliente2('Fernando', 500)
-console.log(fernando2);
-console.log(fernando2.mostrarInformacion());
+// const fernando2 = new Cliente2("Fernando", 500);
+// console.log(fernando2);
+// console.log(fernando2.mostrarInformacion());
 
-//Herencia
+// //Herencia
 
-class Empresa extends Cliente1 {
-  constructor(nombre, saldo, telefono, categoria){
-    super(nombre, saldo)
-    this.telefono = telefono;
-    this.categoria = categoria;
-  }
-}
+// class Empresa extends Cliente1 {
+//   constructor(nombre, saldo, telefono, categoria) {
+//     super(nombre, saldo);
+//     this.telefono = telefono;
+//     this.categoria = categoria;
+//   }
+// }
 
-const empresa1 = new Empresa('Programador', 1200, 5566778899, 'Programacion');
-console.log(empresa1);
+// const empresa1 = new Empresa("Programador", 1200, 5566778899, "Programacion");
+// console.log(empresa1);
+
+// //Propiedades privadas
+// class Persona{
+//   #telefono//El # hace los atributos privados
+//   constructor(nombre, telefono){
+//     this.nombre = nombre;
+//     this.#telefono = telefono;
+//   }
+
+//   mostrarInformacion(){
+//     return `Cliente: ${this.nombre}, su telefono es ${this.#telefono}.`;
+//   }
+// }
+
+// const persona1 = new Persona("Fernando", 5527283990);
+// console.log(persona1);
+//console.log(persona1.#telefono);//Private field #telefono must be declared in an enclosing class.
+// console.log(persona1.mostrarInformacion());
+
+//Fin de programacion orientada a objetos.
+
+//Proyecto 7. Administracion de presupuesto con clases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
