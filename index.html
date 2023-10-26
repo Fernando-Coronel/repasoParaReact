@@ -346,58 +346,55 @@
         <div id="contenido" class="row">
             <div class="col-md-6 agregar-cita">
                 <form id="nueva-cita">
-                    <legend class="mb-4">Datos del Paciente</legend>
+                    <legend class="mb-4 text-center fw-bold">Datos del Paciente</legend>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Nombre Mascota:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="text" id="mascota" name="mascota" class="form-control" placeholder="Nombre Mascota">
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Propietario:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="text" id="propietario" name="propietario" class="form-control"  placeholder="Nombre Dueño de la Mascota">
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Teléfono:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="tel" id="telefono" name="telefono" class="form-control"  placeholder="Número de Teléfono">
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Fecha:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="date" id="fecha" name="fecha" class="form-control">
                         </div>
-                    </div>
-
+                    </div><br/>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Hora:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="time" id="hora" name="hora" class="form-control">
                         </div>
-                    </div>
-
+                    </div><br/>
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Sintomas:</label>
                         <div class="col-sm-8 col-lg-8">
                             <textarea id="sintomas" name="sintomas" class="form-control"></textarea>
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group">
                             <button type="submit" class="btn btn-success w-100 d-block">Crear Cita</button>
-                    </div>
+                    </div><br/>
                 </form>
             </div>
             <div class="col-md-6">
-                <h2 id="administra" class="mb-4">Administra tus Citas</h2>
+                <h2 id="administra" class="mb-4 text-center">Administra tus Citas</h2>
                 <ul id="citas" class="list-group lista-citas"></ul>
             </div>
-        </div> <!--.row-->
-    </div><!--.container-->
+        </div>
+    </div>
     
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
