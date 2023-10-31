@@ -1,0 +1,27 @@
+//{
+  "name": "ACP",
+  "short_name": "ACP",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+    "src": "img/icon-192x192.png",
+    "type": "image/png", "sizes": "72x72"
+    },
+    {
+    "src": "img/icon-256x256.png",
+    "type": "image/png", "sizes": "144x144"
+    },
+    {
+    "src": "img/icon-384x384.png",
+    "type": "image/png", "sizes": "384x384"
+    },
+    {
+    "src": "img/icon-512x512.png",
+    "type": "image/png", "sizes": "512x512"
+    }
+  ]
+}

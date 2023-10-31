@@ -2159,18 +2159,103 @@
 //   editando = true;
 // }
 
-//Fin de proyecto
+//Fin de proyecto.
+
+//Sets maps y Symbols
+
+// const carrito = new Set();
+
+// carrito.add('Mouse');
+// carrito.add('Teclado');
+// carrito.add('Monitor');
+// carrito.add('CPU');
+// carrito.add('Memoria USB');
+
+// //Comprueba si existe ese elemento
+// console.log(carrito.has('CPU'));
+
+// //Borrar un elemento
+// console.log(carrito.delete('Memoria USB'));
+
+// //Saber el número de elementos
+// console.log(carrito.size);
+
+// //Eliminar todos los elementos
+// //console.log(carrito.clear());
+
+// //Se puede iterar como un array con forEach
+// carrito.forEach(producto => {
+//   console.log(producto);
+// });
+
+// console.log(carrito);
 
 
+//  //Del siguiente arreglo eliminar los duplicados
+//  const numeros = [10,20,30,40,50,10,20];
 
+//  const noDuplicados = new Set(numeros);
+//  console.log(noDuplicados);
+//  noDuplicados.forEach(numeros => {
+//    console.log(numeros);
+//  })
 
+//  //WeakSet = es un set debil que solo admite objetos
+//  const weakSet = new WeakSet();
 
+//  const cliente = {
+//    nombre: 'Fernando',
+//    saldo: 200
+//  }
 
+//  console.log(weakSet.add(cliente));
 
+//  //Maps
+//  const cliente2 = new Map();
 
+//  cliente2.set('nombre', 'Fernando');
+//  cliente2.set('saldo', 900);
+//  console.log(cliente2);
+//  console.log(cliente2.size);
+//  console.log(cliente2.has('nombre2'));
+//  console.log(cliente2.get('nombre'));
 
+//  //otra forma de asignar valores a un map
+//  const cliente3 = new Map([
+//    ['nombre', 'Fernando'],
+//    ['saldo', 3000]
+//    ]);
 
+//   console.log(cliente3);
 
+//  cliente3.forEach(datos => {
+//    console.log(datos);
+//  });
+
+//Modulos
+//Buenas practicas los imports deben ir en la parte de arriba de todo el codigo
+import miNuevaFuncion, {nombreCliente, ahorro, mostrarInformacion, tieneSaldo, Cliente as claseCliente} from './cliente.js';//as es el alias que le quieras asignar a la variable en el import pero es recomendable dejarle el mismo nombre.
+import {Empresa} from './empresa.js';
+
+//Importando una variable
+console.log(nombreCliente, ahorro);
+
+//Importando una funcion
+console.log(mostrarInformacion(nombreCliente, ahorro));
+tieneSaldo(ahorro);
+
+//Importando una clase
+const cliente = new claseCliente(nombreCliente, ahorro);
+console.log(cliente);
+console.log(cliente.mostrarInformacion());
+
+//Importar clase Empresa
+
+const empresa = new Empresa('Soporte Tecnico', 5000, 'Tecnologías de la Información');
+console.log(empresa);
+
+//Exportar un default y alias a los imports(export default solo puede haber uno por archivo);
+miNuevaFuncion();
 
 
 
