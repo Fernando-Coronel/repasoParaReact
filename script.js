@@ -2234,36 +2234,162 @@
 
 //Modulos
 //Buenas practicas los imports deben ir en la parte de arriba de todo el codigo
-import miNuevaFuncion, {nombreCliente, ahorro, mostrarInformacion, tieneSaldo, Cliente as claseCliente} from './cliente.js';//as es el alias que le quieras asignar a la variable en el import pero es recomendable dejarle el mismo nombre.
-import {Empresa} from './empresa.js';
+// import miNuevaFuncion, {nombreCliente, ahorro, mostrarInformacion, tieneSaldo, Cliente as claseCliente} from './cliente.js';//as es el alias que le quieras asignar a la variable en el import pero es recomendable dejarle el mismo nombre.
+// import {Empresa} from './empresa.js';
 
-//Importando una variable
-console.log(nombreCliente, ahorro);
+// //Importando una variable
+// console.log(nombreCliente, ahorro);
 
-//Importando una funcion
-console.log(mostrarInformacion(nombreCliente, ahorro));
-tieneSaldo(ahorro);
+// //Importando una funcion
+// console.log(mostrarInformacion(nombreCliente, ahorro));
+// tieneSaldo(ahorro);
 
-//Importando una clase
-const cliente = new claseCliente(nombreCliente, ahorro);
-console.log(cliente);
-console.log(cliente.mostrarInformacion());
+// //Importando una clase
+// const cliente = new claseCliente(nombreCliente, ahorro);
+// console.log(cliente);
+// console.log(cliente.mostrarInformacion());
 
-//Importar clase Empresa
+// //Importar clase Empresa
 
-const empresa = new Empresa('Soporte Tecnico', 5000, 'Tecnologías de la Información');
-console.log(empresa);
+// const empresa = new Empresa('Soporte Tecnico', 5000, 'Tecnologías de la Información');
+// console.log(empresa);
 
-//Exportar un default y alias a los imports(export default solo puede haber uno por archivo);
-miNuevaFuncion();
+// //Exportar un default y alias a los imports(export default solo puede haber uno por archivo);
+// miNuevaFuncion();
 
+//Proyecto 9. CRM con indexeDB
+(function () {
+  let DB;
+  const listadoClientes = document.querySelector("#listado-clientes");
 
+  document.addEventListener("DOMContentLoaded", () => {
+    crearDB();
 
+    if (window.indexedDB.open("crm", 1)) {
+      obtenerClientes();
+    }
 
+    listadoClientes.addEventListener('click', eliminarRegistro);
+  });
 
+  function eliminarRegistro(e){
+    e.preventDefault();
+    if(e.target.classList.contains('eliminar')){
+      const idEliminar = Number(e.target.dataset.cliente);
+      // Swal.fire({
+      //   title: "Esta seguro de eliminar el cliente?",
+      //   icon: "warning",
+      //   showCancelButton: true,
+      //   confirmButtonColor: "#3085d6",
+      //   cancelButtonColor: "#d33",
+      //   confirmButtonText: "Sí, eliminar!",
+      //   cancelButtonText: "Cancelar",
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     Swal.fire({
+      //       title: "Eliminado!",
+      //       text: "El cliente ha sido eliminado.",
+      //       icon: "success"
+      //     });
+      //   }
+      // });
+      const confirmar = confirm('Deseas eliminar este cliente?');
+      console.log(confirmar);
 
+      if(confirmar){
+        const transaction = DB.transaction(['crm'], 'readwrite');
+        const objectStore = transaction.objectStore('crm');
 
+        objectStore.delete(idEliminar);
 
+        transaction.oncomplete = function(){
+          console.log('Eliminado...');
+          e.target.parentElement.parentElement.remove();
+        }
+
+        transaction.onerror = function(){
+          console.log('Hubo un error');
+        }
+      }
+    }
+  }
+
+  //Crea la base de datos con indexeDB
+  function crearDB() {
+    const crearDB = window.indexedDB.open("crm", 1);
+
+    crearDB.onerror = function () {
+      console.log("Hubo un error");
+    };
+
+    crearDB.onsuccess = function () {
+      DB = crearDB.result;
+    };
+
+    crearDB.onupgradeneeded = function (e) {
+      const db = e.target.result;
+
+      const objectStore = db.createObjectStore("crm", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+
+      objectStore.createIndex("nombre", "nombre", { unique: false });
+      objectStore.createIndex("email", "email", { unique: true });
+      objectStore.createIndex("telefono", "telefono", { unique: false });
+      objectStore.createIndex("empresa", "empresa", { unique: false });
+      objectStore.createIndex("id", "id", { unique: true });
+
+      console.log("DB lista y creara");
+    };
+  }
+
+  function obtenerClientes() {
+    const abrirConexion = window.indexedDB.open("crm", 1);
+
+    abrirConexion.onerror = function () {
+      console.log("Hubo un error");
+    };
+
+    abrirConexion.onsuccess = function () {
+      DB = abrirConexion.result;
+
+      const objectStore = DB.transaction("crm").objectStore("crm");
+
+      objectStore.openCursor().onsuccess = function (e) {
+        const cursor = e.target.result;
+
+        if (cursor) {
+          const { nombre, empresa, email, telefono, id } = cursor.value;
+
+          listadoClientes.innerHTML += `
+                    <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                            <p class="text-sm leading-5 font-medium text-gray-700 text-lg  font-bold"> ${nombre} </p>
+                            <p class="text-sm leading-10 text-gray-700"> ${email} </p>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                            <p class="text-gray-700">${telefono}</p>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200  leading-5 text-gray-700">    
+                            <p class="text-gray-600">${empresa}</p>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5">
+                            <a href="editar-cliente.html?id=${id}" class="text-teal-600 hover:text-teal-900 mr-5">Editar</a>
+                            <a href="#" data-cliente="${id}" class="text-red-600 hover:text-red-900 eliminar">Eliminar</a>
+                        </td>
+                    </tr>`;
+
+          cursor.continue();
+        } else {
+          console.log("No hay más registros...");
+        }
+      };
+    };
+  }
+})();
+
+//Fin de proyecto
 
 
 
